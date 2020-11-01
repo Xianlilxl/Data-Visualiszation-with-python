@@ -196,9 +196,9 @@ La partie supérieure de la page présente les paramètres permettant d'intérag
 
 - #### Partie principale
 
-![dde_2.PNG](images/dde_2.PNG)
+![dde.PNG](images/dde.PNG)
 
-La partie supérieure de la page affiche un histogramme du nombre d'échantillons de chaque diplôme, et un camembert du pourcentage de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit avec le "*slider*" situé au-dessus des graphes. En plus de définir une année, le slider permet également de les faire défiler. Cela permet de voir la progression et la distribution du nombre d'échantillons et du pourcentage de chaque discipline au cours des années.
+La partie inférieure de la page affiche un histogramme du nombre d'échantillons de chaque diplôme, et un camembert du pourcentage de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit avec le "*slider*" situé au-dessus des graphes. En plus de définir une année, le slider permet également de les faire défiler. Cela permet de voir la progression et la distribution du nombre d'échantillons et du pourcentage de chaque discipline au cours des années.
 
 ### C. *Statistiques par an*
 
