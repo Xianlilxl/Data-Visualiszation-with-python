@@ -14,7 +14,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
 import dash_daq as daq
-import dash_bootstrap_components as dbc
 
 import plotly.figure_factory as ff
 import plotly.graph_objs as go
@@ -28,8 +27,9 @@ import flask
 import pandas as pd
 import numpy as np
 import json
+import plotly.graph_objects as go
 
-# app initialize
+# Initialisation de l'application
 app = dash.Dash(
     __name__,
     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
@@ -37,11 +37,12 @@ app = dash.Dash(
 server = app.server
 app.config["suppress_callback_exceptions"] = True
 
-# Load data
+# Lecture des fichiers de source
 diplome_dut = pd.read_csv("fr-esr-insertion_professionnelle-dut_donnees_nationales.csv", sep=';',na_values=["ns", "nd"])
 diplome_lp = pd.read_csv("fr-esr-insertion_professionnelle-lp.csv", sep=';', na_values=["ns", "nd"])
 diplome_master = pd.read_csv("fr-esr-insertion_professionnelle-master.csv", sep=';', na_values=["ns", "nd"])
 
+# Construction du titre de page
 def build_banner():
     return html.Div(
         id="banner",
@@ -61,6 +62,7 @@ def build_banner():
         ],
     )
 
+# Construction des onglets principals
 def build_tabs():
     return html.Div(
         id="tabs",
@@ -71,6 +73,7 @@ def build_tabs():
                 value="tab1",
                 className="custom-tabs",
                 children=[
+                    # Premier onglet "Distribution des échantillons"
                     dcc.Tab(
                         id="Echtls-tab",
                         label="Distribution des échantillons",
@@ -78,6 +81,7 @@ def build_tabs():
                         className="custom-tab",
                         selected_className="custom-tab--selected",
                     ),
+                    # Deuxième onglet "Statistiques par an"
                     dcc.Tab(
                         id="An-tab",
                         label="Statistiques par an",
@@ -85,6 +89,7 @@ def build_tabs():
                         className="custom-tab",
                         selected_className="custom-tab--selected",
                     ),
+                    # Troisième onglet "Distribution des disciplines"
                     dcc.Tab(
                         id="Disciplines-tab",
                         label="Distribution des disciplines",
@@ -92,6 +97,7 @@ def build_tabs():
                         className="custom-tab",
                         selected_className="custom-tab--selected",
                     ),
+                    # Quatrième onglet "Statistiques par département"
                     dcc.Tab(
                         id="Ville-tab",
                         label="Statistiques par département",
@@ -104,12 +110,14 @@ def build_tabs():
         ],
     )
 
-def init_df():
-    return 0
-
+# Construction des titres html
 def build_graph_title(title):
     return html.P(className="graph-title", children=title)
 
+# Construction du premier onglet "Distribution des échantillons"
+# Dans un premier temps nous vous montrons la distribution de l'ensemble de notre jeu de données en l'illustrant 
+# un histogramme des nombres d'échantillons de chaque diplôme, 
+# et un graphe camembert des pourcentages d'échantillons des disciplines dans chaque diplôme 
 def build_tab_1():
     return [
         html.Div(
@@ -118,10 +126,10 @@ def build_tab_1():
                 html.Div(
                     className="row",
                     children=[
-                        # Map
                         html.Div(
                             id="map-container",
                             children=[
+                                # le Slider filtre les données alimentant les trois graphes au-dessous en fonction de l'année
                                 html.H3("Paramètres"),
                                 html.Div(
                                     id="header-container2",
@@ -143,10 +151,12 @@ def build_tab_1():
                                     ],
                                 ), 
                                 html.Div([
+                                    # Le graphe des nombres d'échantillons de chaque diplôme(DUT, Licence professionnel et Master)
                                     html.Div([
                                         html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
                                         dcc.Graph(id = "histo_diplome")
                                     ], style={'display': 'inline-block'}),
+                                    # Le graphe des pourcentages d'échantillons de chaque discipline dans chaque diplôme(DUT, Licence professionnelle et Master)
                                     html.Div([
                                         html.H3("Pourcentage des disciplines dans chaque diplôme en fonction de l'année"),
                                         dcc.Graph(id = "diplome")
@@ -159,7 +169,7 @@ def build_tab_1():
             ]
         )
     ]
-
+# L'histogramme du nombre d'échantillons de chaque diplôme en fonction de l'année choisie 
 @app.callback(
     dash.dependencies.Output('histo_diplome', 'figure'),
     [dash.dependencies.Input('annee_par_diplome','value')]
@@ -174,6 +184,7 @@ def get_histo_par_diplome(annee_value):
 
     return px.histogram(nbr_echantillons, x="Diplome", y="Nombre")
 
+# Le graphe de camembert représente les pourcentages de chaque discipline dans chaque diplôme 
 @app.callback(
     dash.dependencies.Output('diplome', 'figure'),
     [dash.dependencies.Input('annee_par_diplome','value')]
@@ -192,7 +203,8 @@ def get_diplome(annee_value):
                     color='Nombre de réponses')
     return fig
 
-
+# Deuxième tabItems "Distribution des échantillons"
+# Dans cette partie, nous présentons les évolutions des statistiques critiques de chaque diplôme au cours des années (2010 à 2016) 
 def build_tab_2():
     return [
         html.Div(
@@ -207,6 +219,7 @@ def build_tab_2():
                                 html.Div(
                                     id="header-container",
                                     children=[
+                                        # Le RadioItems filtre les données alimentant les graphes au-dessous en fonction des disciplines
                                         html.H3("Paramètres"),
                                         build_graph_title("Choisissez une discipline :"),
                                         dcc.RadioItems(
@@ -252,6 +265,7 @@ def build_tab_2():
                                     value="tab21",
                                     className="custom-tabs",
                                     children=[
+                                        # Les parts des femmes de chaque diplôme :
                                         dcc.Tab(
                                             id="Femme-an-tab",
                                             label="Part des femmes",
@@ -268,6 +282,7 @@ def build_tab_2():
                                             className="custom-tab",
                                             selected_className="custom-tab--selected",
                                         ),
+                                        # Le taux d'insertion (en %) de chaque diplôme
                                         dcc.Tab(
                                             id="Insertion-an-tab",
                                             label="Taux d'insertion",
@@ -283,6 +298,8 @@ def build_tab_2():
                                             className="custom-tab",
                                             selected_className="custom-tab--selected",
                                         ),
+                                        # Les statistiques des emplois de chaque dipôme : 
+                                        # le taux d'emplois cadres, le taux d'emplois stables et le taux d'emplois à temps plein (en %)
                                         dcc.Tab(
                                             id="Emploi-an-tab",
                                             label="Statistiques des emplois",
@@ -303,6 +320,7 @@ def build_tab_2():
                                             className="custom-tab",
                                             selected_className="custom-tab--selected",
                                         ),
+                                        # Les salaires nets mensuels médians des emplois à temps plein (en euros) de chaque diplôme 
                                         dcc.Tab(
                                             id="Salaires-an-tab",
                                             label="Statistiques des salaires",
@@ -328,6 +346,7 @@ def build_tab_2():
         ),
     ]
 
+# La tendance et la distribution des parts de femmes (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('part_femmes_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -344,6 +363,7 @@ def get_part_femmes_par_an(discipline_value):
     
     return px.scatter(part_femmes_par_an, x="Annee", y="Part des femmes", color = "Diplome",trendline="ols", marginal_y="box")
 
+# La tendance et la distribution du taux d'insertion (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_dinsertion_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -360,6 +380,7 @@ def get_taux_dinsertion_par_an(discipline_value):
     
     return px.scatter(taux_dinsertion_par_an, x="Annee", y="Taux d’insertion", color = "Diplome",trendline="ols", marginal_y="box")
 
+# La tendance et la distribution des taux d'emplois cadres de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_cadre_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -376,6 +397,7 @@ def get_taux_emplois_cadre_par_an(discipline_value):
     
     return px.scatter(taux_emplois_cadre_par_an, x="Annee", y="Emplois cadre", color = "Diplome",trendline="ols", marginal_y="box")
 
+# La tendance et la distribution du taux d'emplois stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_stables_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -392,6 +414,7 @@ def get_taux_emplois_stables_par_an(discipline_value):
     
     return px.scatter(taux_emplois_stables_par_an, x="Annee", y="Emplois stables", color = "Diplome",trendline="ols", marginal_y="box")
 
+# La tendance et la distribution du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_temps_plein_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -408,6 +431,7 @@ def get_taux_emplois_temps_plein_par_an(discipline_value):
     
     return px.scatter(taux_emplois_temps_plein_par_an, x="Annee", y="Emplois à temps plein", color = "Diplome",trendline="ols", marginal_y="box")
 
+# La tendance et la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('salaire_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -425,7 +449,9 @@ def get_salaire_par_an(discipline_value):
     return px.scatter(salaire_par_an, x="Annee", y="Salaire", color = "Diplome",trendline="ols", marginal_y="box")
 
 
-
+# Construction du troisième onglet "Distribution des disciplines"
+# Dans cette partie, on vous montre des distributions des statistiques critiques dans chaque discipline et chaque année, ainsi  
+# qu'une comparaison entre les différents diplômes. Un histogramme et un violinplot par statistique illustrent ces distributions
 def build_tab_3():
     return [
         html.Div(
@@ -435,6 +461,7 @@ def build_tab_3():
                     id="top-row",
                     children=[
                         html.H3("Paramètres"),
+                        # Le slider filtre les données alimentant les trois graphes se situant en dessous en fonction de l'année
                         html.Div(
                             id="header-container2",
                             children=[
@@ -454,6 +481,7 @@ def build_tab_3():
                                 ),
                             ],
                         ),
+                        # Le radioButtons filtre les données alimentant les graphes qui se trouvent en dessous en fonction des disciplines
                         html.Div(
                             id="header-container",
                             children=[
@@ -502,6 +530,8 @@ def build_tab_3():
                             value="tab31",
                             className="custom-tabs",
                             children=[
+                                # La distribution des parts des femmes de chaque diplôme en fonction de l'année et de la discipline choisies
+                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
                                 dcc.Tab(
                                     id="Femme-discipline-tab",
                                     label="Part des femmes",
@@ -510,7 +540,6 @@ def build_tab_3():
                                             className="row",
                                             id="Femme-discipline-container",
                                             children=[
-                                                # Formation des violins
                                                 html.H3("Distribution des parts des femmes"),
                                                 dcc.Graph(id = "part_femmes_par_domaine")
                                                 ],
@@ -520,6 +549,8 @@ def build_tab_3():
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
+                                # La distribution du taux d'insertion (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
+                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
                                 dcc.Tab(
                                     id="Insertion-discipline-tab",
                                     label="Taux d'insertion",
@@ -528,7 +559,6 @@ def build_tab_3():
                                             className="row",
                                             id="Insertion-discipline-container",
                                             children=[
-                                                # Formation des violins
                                                 html.H3("Distribution des taux d'insertion"),
                                                 dcc.Graph(id = "taux_dinsertion_par_domaine"),
                                                 ],
@@ -538,6 +568,8 @@ def build_tab_3():
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
+                                # La distribution du taux d'emplois cadres, stables et à temps plein (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
+                                # ainsi que des boxplots sur tout jeu de données de ces derniers
                                 dcc.Tab(
                                     id="Emploi-discipline-tab",
                                     label="Taux d'emplois",
@@ -546,9 +578,6 @@ def build_tab_3():
                                             className="row",
                                             id="Emploi-discipline-container",
                                             children=[
-                                                # Formation des histogrammes
-                                                #html.H3("Statistiques des emplois"),
-                                                # Formation des violins
                                                 html.H3("Taux d'emplois cadre"),
                                                 dcc.Graph(id = "taux_emplois_cadre_par_domaine"), 
                                                 html.H3("Taux d'emplois stables"),
@@ -562,6 +591,8 @@ def build_tab_3():
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
+                                # La distribution des salaires nets mensuels (en euros) de chaque diplôme en fonction de l'année et de la discipline choisies
+                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
                                 dcc.Tab(
                                     id="Salaires-discipline-tab",
                                     label="Salaires",
@@ -570,7 +601,6 @@ def build_tab_3():
                                             className="row",
                                             id="Salaires-discipline-container",
                                             children=[
-                                                # Formation des histogrammes
                                                 html.H3("Salaires nets mensuels"),
                                                 dcc.Graph(id = "salaire_par_domaine")
                                                 ],
@@ -588,6 +618,7 @@ def build_tab_3():
         ),
     ]
 
+# Le violinPlot du taux d'insertion (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('taux_dinsertion_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -604,6 +635,7 @@ def get_taux_dinsertion_par_domaine(annee_value, discipline_value):
     taux_insertion_par_domaine = taux_insertion_par_domaine.dropna(axis=0,how='all')
     return px.violin(taux_insertion_par_domaine, x="Diplome", y="Taux d’insertion", points="all", box = True, color = "Diplome")
 
+# Le violinPlot des parts des femmes de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('part_femmes_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -620,6 +652,8 @@ def get_part_femmes_par_domaine(annee_value, discipline_value):
     part_femmes_par_domaine = part_femmes_par_domaine.dropna(axis=0,how='all')
     return px.violin(part_femmes_par_domaine, x="Diplome", y="Part des femmes", points="all", box = True, color = "Diplome")
 
+
+# Le violinPlot du taux d'emplois cadres (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('taux_emplois_cadre_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -636,6 +670,7 @@ def get_taux_emplois_cadre_par_domaine(annee_value, discipline_value):
     emplois_cadre_par_domaine = emplois_cadre_par_domaine.dropna(axis=0,how='all')
     return px.violin(emplois_cadre_par_domaine, x="Diplome", y="Emplois cadre", points="all", box = True, color = "Diplome")
 
+# Le violinPlot du taux d'emplois stables (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('taux_emplois_stables_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -652,6 +687,7 @@ def get_taux_emplois_stables_par_domaine(annee_value, discipline_value):
     taux_emplois_stables_par_domaine = taux_emplois_stables_par_domaine.dropna(axis=0,how='all')
     return px.violin(taux_emplois_stables_par_domaine, x="Diplome", y="Emplois stables", points="all", box = True, color = "Diplome")
 
+# Le violinPlot du taux d'emplois à temps plein (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('taux_emplois_temps_plein_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -668,6 +704,7 @@ def get_taux_emplois_temps_plein_par_domaine(annee_value, discipline_value):
     taux_emplois_temps_plein_par_domaine = taux_emplois_temps_plein_par_domaine.dropna(axis=0,how='all')
     return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Emplois à temps plein", points="all", box = True, color = "Diplome")
 
+# Le violinPlot des salaires nets mensuels (en euros) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
     dash.dependencies.Output('salaire_par_domaine', 'figure'),
     [dash.dependencies.Input('annee_par_domaine','value'),
@@ -684,7 +721,9 @@ def get_salaire_par_domaine(annee_value, discipline_value):
     taux_emplois_temps_plein_par_domaine = taux_emplois_temps_plein_par_domaine.dropna(axis=0,how='all')
     return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Salaire", points="all", box = True, color = "Diplome")
 
-
+# Construction du quatrième onglet "Statistiques par département"
+# Dans cette partie, nous illustrons la distribution des statistiques critiques de chaque département sous forme d'une cartographie 
+# en fonction de l'année, du diplôme, de la discipline et de la statistique choisis
 def build_tab_4():
     return [
         html.Div(
@@ -695,6 +734,7 @@ def build_tab_4():
                 html.Div(
                     id="map-container",
                     children=[
+                        # Le slider filtre les données alimentant les trois graphes se situant en dessous en fonction de l'année
                         html.H3("Année"),
                         dcc.Slider(
                             id = "annee_carte",
@@ -709,6 +749,8 @@ def build_tab_4():
                             },
                             value=2013
                         ),
+                        # A cause du manque de données géographiques dans le jeu de données de DUT, 
+                        # nous présentons ici uniquement la cartographie des données de licence professionnelle et de master
                         html.H3(
                             "Choisissez un diplôme :"
                         ),
@@ -720,6 +762,7 @@ def build_tab_4():
                             ],
                             value="LP",
                         ),
+                        # Le radioItems filtre les données alimentant les graphes qui se trouvent en dessous en fonction des disciplines
                         html.H3(
                             "Choisissez une discipline :"
                         ),
@@ -783,22 +826,14 @@ def build_tab_4():
                             value="Taux d'insertion",
                         ),
                         dcc.Graph(id = "carte")
-                        # dcc.Graph(
-                        #     id="carte"
-                        #     """ figure={
-                        #         "layout": {
-                        #             "paper_bgcolor": "#192444",
-                        #             "plot_bgcolor": "#192444",
-                        #         } """
-                            
-                        #     #config={"scrollZoom": True, "displayModeBar": True},
-                        # ),
                     ],
                 ),
             ],
         ),          
     ]
 
+# La cartographie représente les statistiques par département en fonction de l'année, du diplôme, de la discipline et de la statistique choisis
+# ici on prend en compte des médianes des statistiques de chaque département 
 @app.callback(
     dash.dependencies.Output('carte', 'figure'),
     [dash.dependencies.Input('annee_carte','value'),
@@ -832,7 +867,6 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
     columns.append(statistique_value)
     donnees_carte = pd.DataFrame(donnees_carte, columns = columns)
 
-    import json
     with open("departements.geojson",'r') as load_f:
             departement = json.load(load_f)
 
@@ -854,7 +888,7 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
 
     Academie = pd.concat([pd.DataFrame({'Departement' : depts}),Academie], axis = 1)
 
-    import plotly.graph_objects as go
+    
     if statistique_value == "Salaire net mensuel médian des emplois à temps plein":
         etiquette = '<b>Département</b>: <b>%{hovertext}</b>'+ '<br><b>'+ statistique_value +'</b>: %{z} €<br><extra></extra>'
     else : 
@@ -883,9 +917,10 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
     return fig
 
 
-
+# Construction du dashboard
 app.layout = html.Div(
     id="big-app-container",
+    #style = {'backgroundColor' : 'blue'},
     children=[
         build_banner(),
         html.Div(
@@ -899,11 +934,7 @@ app.layout = html.Div(
         ],
     )
 
-#############################################
-# Interaction Between Components / Controller
-#############################################
-
-# Template
+# Construction des onglets principals
 @app.callback(
     [Output("app-content", "children")],
     [Input("app-tabs", "value")],
@@ -917,22 +948,6 @@ def render_tab_content(tab_switch):
         return build_tab_3()
     elif tab_switch == "tab4":
         return build_tab_4()
-
-# ======= Callbacks for modal popup =======
-@app.callback(
-    Output("markdown", "style"),
-    [
-    #Input("learn-more-button", "n_clicks"), 
-    Input("markdown_close", "n_clicks")],
-)
-def update_click_output(close_click):
-    ctx = dash.callback_context
-
-    if ctx.triggered:
-        prop_id = ctx.triggered[0]["prop_id"].split(".")[0]
-        
-
-    return {"display": "none"}
 
 # Running the server
 if __name__ == '__main__':
