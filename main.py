@@ -20,9 +20,6 @@ import plotly.graph_objs as go
 import plotly.express as px
 import flask
 
-#import constants
-
-
 # pydata stack
 import pandas as pd
 import numpy as np
@@ -62,7 +59,7 @@ def build_banner():
         ],
     )
 
-# Construction des onglets principals
+# Construction des onglets principaux
 def build_tabs():
     return html.Div(
         id="tabs",
@@ -129,7 +126,7 @@ def build_tab_1():
                         html.Div(
                             id="map-container",
                             children=[
-                                # le Slider filtre les données alimentant les trois graphes au-dessous en fonction de l'année
+                                # le Slider filtre les données alimentant les trois graphes en dessous en fonction de l'année
                                 html.H3("Paramètres"),
                                 html.Div(
                                     id="header-container2",
@@ -153,12 +150,12 @@ def build_tab_1():
                                 html.Div([
                                     # Le graphe des nombres d'échantillons de chaque diplôme(DUT, Licence professionnel et Master)
                                     html.Div([
-                                        html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
+                                        #html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
                                         dcc.Graph(id = "histo_diplome")
                                     ], style={'display': 'inline-block'}),
                                     # Le graphe des pourcentages d'échantillons de chaque discipline dans chaque diplôme(DUT, Licence professionnelle et Master)
                                     html.Div([
-                                        html.H3("Pourcentage des disciplines dans chaque diplôme en fonction de l'année"),
+                                        #html.H3("Pourcentage des disciplines dans chaque diplôme en fonction de l'année"),
                                         dcc.Graph(id = "diplome")
                                     ], style={'display': 'inline-block'})
                                 ], style={'width': '100%', 'display': 'inline-block'})
@@ -182,9 +179,9 @@ def get_histo_par_diplome(annee_value):
     nbr_echantillons = pd.DataFrame({"Diplome" : ["DUT", "LP", "Master"], 
                                      "Nombre" : [dut["Nombre de réponses"].sum(), lp["Nombre de réponses"].sum(), master["nombre_de_reponses"].sum()]})
 
-    return px.histogram(nbr_echantillons, x="Diplome", y="Nombre")
+    return px.histogram(nbr_echantillons, x="Diplome", y="Nombre", title="Nombre d'échantillons de chaque diplôme en fonction de l'année", labels={'x':'Diplômes', 'y':"Nombre d'échantillons de chaque diplôme"})
 
-# Le graphe de camembert représente les pourcentages de chaque discipline dans chaque diplôme 
+# Le graphe en camembert représente les pourcentages de chaque discipline dans chaque diplôme 
 @app.callback(
     dash.dependencies.Output('diplome', 'figure'),
     [dash.dependencies.Input('annee_par_diplome','value')]
@@ -200,7 +197,7 @@ def get_diplome(annee_value):
                         axis = 0)
     diplome = diplome.groupby(by = ["Diplome", "Domaine"], as_index = False)["Nombre de réponses"].sum()
     fig = px.sunburst(diplome, path=["Diplome", "Domaine"], values="Nombre de réponses",color_continuous_scale='RdBu',
-                    color='Nombre de réponses')
+                    color='Nombre de réponses', title="Pourcentage des disciplines dans chaque diplôme en fonction de l'année")
     return fig
 
 # Deuxième tabItems "Distribution des échantillons"
@@ -219,7 +216,7 @@ def build_tab_2():
                                 html.Div(
                                     id="header-container",
                                     children=[
-                                        # Le RadioItems filtre les données alimentant les graphes au-dessous en fonction des disciplines
+                                        # Le RadioItems filtre les données alimentant les graphes en dessous en fonction des disciplines
                                         html.H3("Paramètres"),
                                         build_graph_title("Choisissez une discipline :"),
                                         dcc.RadioItems(
@@ -268,12 +265,12 @@ def build_tab_2():
                                         # Les parts des femmes de chaque diplôme :
                                         dcc.Tab(
                                             id="Femme-an-tab",
-                                            label="Part des femmes",
+                                            label="Part des femmes (en %)",
                                             children=[
                                                 html.Div(
                                                     id="Femme-an-container",
                                                     children=[
-                                                        html.H3("Part des femmes"),
+                                                        html.H3("Part des femmes (en %)"),
                                                         dcc.Graph(id = "part_femmes_par_an")
                                                         ]
                                                     )
@@ -285,12 +282,12 @@ def build_tab_2():
                                         # Le taux d'insertion (en %) de chaque diplôme
                                         dcc.Tab(
                                             id="Insertion-an-tab",
-                                            label="Taux d'insertion",
+                                            label="Taux d'insertion (en %)",
                                             children=[
                                                 html.Div(
                                                     id="Insertion-an-container",
                                                     children=[
-                                                        html.H3("Taux d'insertion"), 
+                                                        html.H3("Taux d'insertion (en %)"), 
                                                         dcc.Graph(id = "taux_dinsertion_par_an")]
                                                     )
                                             ],
@@ -298,20 +295,20 @@ def build_tab_2():
                                             className="custom-tab",
                                             selected_className="custom-tab--selected",
                                         ),
-                                        # Les statistiques des emplois de chaque dipôme : 
-                                        # le taux d'emplois cadres, le taux d'emplois stables et le taux d'emplois à temps plein (en %)
+                                        # Les Statistiques des emplois (en %) de chaque dipôme : 
+                                        # le taux d'emplois cadres, le Taux d'emplois stables (en %) et le taux d'emplois à temps plein (en %)
                                         dcc.Tab(
                                             id="Emploi-an-tab",
-                                            label="Statistiques des emplois",
+                                            label="Statistiques des emplois (en %)",
                                             children=[
                                                 html.Div(
                                                     id="Emploi-an-container",
                                                     children=[
-                                                        html.H3("Statistiques des emplois"),
+                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_cadre_par_an"),
-                                                        html.H3("Statistiques des emplois"),
+                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_stables_par_an"),
-                                                        html.H3("Statistiques des emplois"),
+                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_temps_plein_par_an")
                                                         ]
                                                     )
@@ -323,12 +320,12 @@ def build_tab_2():
                                         # Les salaires nets mensuels médians des emplois à temps plein (en euros) de chaque diplôme 
                                         dcc.Tab(
                                             id="Salaires-an-tab",
-                                            label="Statistiques des salaires",
+                                            label="Salaires nets mensuels (en euros)",
                                             children=[
                                                 html.Div(
                                                     id="Salaires-an-container",
                                                     children=[
-                                                        html.H3("Statistiques des salaires"),
+                                                        html.H3("Salaires nets mensuels (en euros)"),
                                                         dcc.Graph(id = "salaire_par_an")]
                                                     )
                                             ],
@@ -346,7 +343,7 @@ def build_tab_2():
         ),
     ]
 
-# La tendance et la distribution des parts de femmes (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
+# La tendance et la distribution des parts des femmes (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('part_femmes_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -380,7 +377,7 @@ def get_taux_dinsertion_par_an(discipline_value):
     
     return px.scatter(taux_dinsertion_par_an, x="Annee", y="Taux d’insertion", color = "Diplome",trendline="ols", marginal_y="box")
 
-# La tendance et la distribution des taux d'emplois cadres de chaque diplôme au cours des années en fonction de la discipline choisie 
+# La tendance et la distribution des Statistiques des emplois (en %) cadres de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_cadre_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -397,7 +394,7 @@ def get_taux_emplois_cadre_par_an(discipline_value):
     
     return px.scatter(taux_emplois_cadre_par_an, x="Annee", y="Emplois cadre", color = "Diplome",trendline="ols", marginal_y="box")
 
-# La tendance et la distribution du taux d'emplois stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
+# La tendance et la distribution des Statistiques des emplois (en %) stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_stables_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -414,7 +411,7 @@ def get_taux_emplois_stables_par_an(discipline_value):
     
     return px.scatter(taux_emplois_stables_par_an, x="Annee", y="Emplois stables", color = "Diplome",trendline="ols", marginal_y="box")
 
-# La tendance et la distribution du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
+# La tendance et la distribution des Statistiques des emplois (en %) à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
     dash.dependencies.Output('taux_emplois_temps_plein_par_an', 'figure'),
     [dash.dependencies.Input('discipline_par_an','value')]
@@ -450,7 +447,7 @@ def get_salaire_par_an(discipline_value):
 
 
 # Construction du troisième onglet "Distribution des disciplines"
-# Dans cette partie, on vous montre des distributions des statistiques critiques dans chaque discipline et chaque année, ainsi  
+# Dans cette partie, on vous montre les distributions des statistiques critiques dans chaque discipline et chaque année, ainsi  
 # qu'une comparaison entre les différents diplômes. Un histogramme et un violinplot par statistique illustrent ces distributions
 def build_tab_3():
     return [
@@ -531,10 +528,10 @@ def build_tab_3():
                             className="custom-tabs",
                             children=[
                                 # La distribution des parts des femmes de chaque diplôme en fonction de l'année et de la discipline choisies
-                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
+                                # ainsi qu'un boxplot sur tous les jeux de données de ces derniers
                                 dcc.Tab(
                                     id="Femme-discipline-tab",
-                                    label="Part des femmes",
+                                    label="Part des femmes (en %)",
                                     children=[
                                         html.Div(
                                             className="row",
@@ -550,16 +547,16 @@ def build_tab_3():
                                     selected_className="custom-tab--selected",
                                 ),
                                 # La distribution du taux d'insertion (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
-                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
+                                # ainsi qu'un boxplot sur tous les jeux de données de ces derniers
                                 dcc.Tab(
                                     id="Insertion-discipline-tab",
-                                    label="Taux d'insertion",
+                                    label="Taux d'insertion (en %)",
                                     children=[
                                         html.Div(
                                             className="row",
                                             id="Insertion-discipline-container",
                                             children=[
-                                                html.H3("Distribution des taux d'insertion"),
+                                                html.H3("Distribution des Taux d'insertion (en %)"),
                                                 dcc.Graph(id = "taux_dinsertion_par_domaine"),
                                                 ],
                                             ),
@@ -568,21 +565,21 @@ def build_tab_3():
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
-                                # La distribution du taux d'emplois cadres, stables et à temps plein (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
-                                # ainsi que des boxplots sur tout jeu de données de ces derniers
+                                # La distribution des Statistiques des emplois (en %) cadres, stables et à temps plein (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
+                                # ainsi que des boxplots sur tous les jeux de données de ces derniers
                                 dcc.Tab(
                                     id="Emploi-discipline-tab",
-                                    label="Taux d'emplois",
+                                    label="Statistiques des emplois (en %)",
                                     children=[
                                         html.Div(
                                             className="row",
                                             id="Emploi-discipline-container",
                                             children=[
-                                                html.H3("Taux d'emplois cadre"),
+                                                html.H3("Taux d'emplois cadres (en %)"),
                                                 dcc.Graph(id = "taux_emplois_cadre_par_domaine"), 
-                                                html.H3("Taux d'emplois stables"),
+                                                html.H3("Taux d'emplois stables (en %)"),
                                                 dcc.Graph(id = "taux_emplois_stables_par_domaine"),
-                                                html.H3("Taux d'emploi à temps plein"),
+                                                html.H3("Taux d'emplois à temps plein (en %)"),
                                                 dcc.Graph(id = "taux_emplois_temps_plein_par_domaine")
                                                 ],
                                             ),
@@ -592,16 +589,16 @@ def build_tab_3():
                                     selected_className="custom-tab--selected",
                                 ),
                                 # La distribution des salaires nets mensuels (en euros) de chaque diplôme en fonction de l'année et de la discipline choisies
-                                # ainsi qu'un boxplot sur tout jeu de données de ces derniers
+                                # ainsi qu'un boxplot sur tous les jeux de données de ces derniers
                                 dcc.Tab(
                                     id="Salaires-discipline-tab",
-                                    label="Salaires",
+                                    label="Salaires nets mensuels (en euros)",
                                     children=[
                                         html.Div(
                                             className="row",
                                             id="Salaires-discipline-container",
                                             children=[
-                                                html.H3("Salaires nets mensuels"),
+                                                html.H3("Salaires nets mensuels (en euros)"),
                                                 dcc.Graph(id = "salaire_par_domaine")
                                                 ],
                                             ),
@@ -799,27 +796,27 @@ def build_tab_4():
                             id="statistique_carte",
                             options=[
                                 {
-                                    "label": "Taux d'insertion",
+                                    "label": "Taux d'insertion (en %)",
                                     "value": "Taux d'insertion"
                                     },
                                 {
-                                    "label": "Part des femmes",
+                                    "label": "Part des femmes (en %)",
                                     "value": "Part des femmes"
                                     },
                                 {
-                                    "label": "Taux d'emplois cadres",
+                                    "label": "Taux d'emplois cadres (en %)",
                                     "value": "Taux d'emplois cadres"
                                     },
                                 {
-                                    "label": "Taux d'emplois stables",
+                                    "label": "Taux d'emplois stables (en %)",
                                     "value": "Taux d'emplois stables"
                                     },
                                 {
-                                    "label": "Taux d'emplois temps plein",
+                                    "label": "Taux d'emplois temps plein (en %)",
                                     "value": "Taux d'emplois temps plein"
                                     },
                                 {
-                                    "label": "Salaire net mensuel médian des emplois à temps plein",
+                                    "label": "Salaire net mensuel médian des emplois à temps plein (en euros)",
                                     "value": "Salaire net mensuel médian des emplois à temps plein"
                                     },                                                               
                             ],
@@ -833,7 +830,7 @@ def build_tab_4():
     ]
 
 # La cartographie représente les statistiques par département en fonction de l'année, du diplôme, de la discipline et de la statistique choisis
-# ici on prend en compte des médianes des statistiques de chaque département 
+# ici on prend en compte les médianes des statistiques de chaque département 
 @app.callback(
     dash.dependencies.Output('carte', 'figure'),
     [dash.dependencies.Input('annee_carte','value'),
@@ -934,7 +931,7 @@ app.layout = html.Div(
         ],
     )
 
-# Construction des onglets principals
+# Construction des onglets principaux
 @app.callback(
     [Output("app-content", "children")],
     [Input("app-tabs", "value")],
