@@ -14,6 +14,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
 import dash_daq as daq
+import dash_bootstrap_components as dbc
 
 import plotly.figure_factory as ff
 import plotly.graph_objs as go
@@ -49,15 +50,12 @@ def build_banner():
             html.Div(
                 id="banner-text",
                 children=[
-                    html.H5("Insertion professionnelle")
+                    html.H1("Insertion professionnelle")
                 ],
             ),
             html.Div(
                 id="banner-logo",
                 children=[
-                    html.Button(
-                        id="learn-more-button", children="à propos", n_clicks=0
-                    ),
                 ],
             ),
         ],
@@ -70,7 +68,7 @@ def build_tabs():
         children=[
             dcc.Tabs(
                 id="app-tabs",
-                value="tab2",
+                value="tab1",
                 className="custom-tabs",
                 children=[
                     dcc.Tab(
@@ -124,135 +122,76 @@ def build_tab_1():
                         html.Div(
                             id="map-container",
                             children=[
-                                html.H3(
-                                    "Choisissez un diplôme :"
-                                ),
-                                dcc.RadioItems(
-                                    id="mapbox-diplome-selector",
-                                    options=[
-                                        {"label": "LP", "value": "LP"},
-                                        {"label": "Master", "value": "Master"},                                
+                                html.H3("Paramètres"),
+                                html.Div(
+                                    id="header-container2",
+                                    children=[
+                                        build_graph_title("Année"),
+                                        dcc.Slider(
+                                            id = "annee_par_diplome",
+                                            min=2013,
+                                            max=2016,
+                                            step=None,
+                                            marks={
+                                                2013: '2013',
+                                                2014: '2014',
+                                                2015: '2015',
+                                                2016: '2016'
+                                            },
+                                            value=2013
+                                        ),
                                     ],
-                                    value="basic",
-                                ),
-                                html.H3(
-                                    "Choisissez une discipline :"
-                                ),
-                                dcc.RadioItems(
-                                    id="mapbox-discipline-selector",
-                                    options=[
-                                        {
-                                            "label": "Sciences, technologies et santé",
-                                            "value": "STS"
-                                            },
-                                        {
-                                            "label": "Droit, économie et gestion",
-                                            "value": "DEG"
-                                            },
-                                        {
-                                            "label": "Sciences humaines et sociales",
-                                            "value": "SHS"
-                                            },
-                                        {
-                                            "label": "Lettres, langues, arts",
-                                            "value": "LLA"
-                                            },
-                                        {
-                                            "label": "Masters enseignement",
-                                            "value": "ME"
-                                            },                                                               
-                                    ],
-                                    value="basic",
-                                ),
-                                dcc.Graph(
-                                    id="map",
-                                    figure={
-                                        "layout": {
-                                            "paper_bgcolor": "#192444",
-                                            "plot_bgcolor": "#192444",
-                                        }
-                                    },
-                                    config={"scrollZoom": True, "displayModeBar": True},
-                                ),
+                                ), 
+                                html.Div([
+                                    html.Div([
+                                        html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
+                                        dcc.Graph(id = "histo_diplome")
+                                    ], style={'display': 'inline-block'}),
+                                    html.Div([
+                                        html.H3("Pourcentage des disciplines dans chaque diplôme en fonction de l'année"),
+                                        dcc.Graph(id = "diplome")
+                                    ], style={'display': 'inline-block'})
+                                ], style={'width': '100%', 'display': 'inline-block'})
                             ],
                         ),
                     ],
-                ),
-                html.Div(
-                    className="row",
-                    id="bottom-row",
-                    children=[
-                        html.H3("Année"),
-                        dcc.Slider(
-                            min=2013,
-                            max=2016,
-                            step=None,
-                            marks={
-                                2013: '2013',
-                                2014: '2014',
-                                2015: '2015',
-                                2016: '2016'
-                            },
-                            value=4
-                        ),
-                        # Histogramme
-                        html.Div(
-                            id="histog-container",
-                            className="six columns",
-                            children=[
-                                dcc.Graph(id="histog"),
-                            ],
-                        ),
-                        html.Div(
-                            # barplot
-                            id="barplot-container",
-                            className="six columns",
-                            children=[
-                                dcc.Graph(id="barplot"),
-                            ],
-                        ),
-                    ],
-                ),
+                )
             ]
         )
-        
     ]
 
-def generate_modal():
-    return html.Div(
-        id="markdown",
-        className="modal",
-        children=(
-            html.Div(
-                id="markdown-container",
-                className="markdown-container",
-                children=[
-                    html.Div(
-                        className="close-container",
-                        children=html.Button(
-                            "Close",
-                            id="markdown_close",
-                            n_clicks=0,
-                            className="closeButton",
-                        ),
-                    ),
-                    html.Div(
-                        className="markdown-text",
-                        children=dcc.Markdown(
-                            children=(
-                                """                    
-                                ###### De quoi parle cette application ?
-                                Il s'agit de ...
-                                ###### Que montre cette application ?
-                                ...
-                                """
-                            )
-                        ),
-                    ),
-                ],
-            )
-        ),
-    )
+@app.callback(
+    dash.dependencies.Output('histo_diplome', 'figure'),
+    [dash.dependencies.Input('annee_par_diplome','value')]
+)
+def get_histo_par_diplome(annee_value):
+    dut = diplome_dut[diplome_dut["Année"]==annee_value]
+    lp = diplome_lp[diplome_lp["Annee"]==annee_value]
+    master = diplome_master[diplome_master["annee"]==annee_value]
+
+    nbr_echantillons = pd.DataFrame({"Diplome" : ["DUT", "LP", "Master"], 
+                                     "Nombre" : [dut["Nombre de réponses"].sum(), lp["Nombre de réponses"].sum(), master["nombre_de_reponses"].sum()]})
+
+    return px.histogram(nbr_echantillons, x="Diplome", y="Nombre")
+
+@app.callback(
+    dash.dependencies.Output('diplome', 'figure'),
+    [dash.dependencies.Input('annee_par_diplome','value')]
+)
+def get_diplome(annee_value):
+    dut = diplome_dut[diplome_dut["Année"]==annee_value]
+    lp = diplome_lp[diplome_lp["Annee"]==annee_value]
+    master = diplome_master[diplome_master["annee"]==annee_value]
+
+    diplome = pd.concat([dut[['Diplôme', 'Domaine', "Nombre de réponses"]].rename(columns={"Diplôme": "Diplome"}), 
+                        lp[['Diplôme', 'Domaine', 'Nombre de réponses']].rename(columns={"Diplôme": "Diplome"}), 
+                        master[['diplome', 'domaine', "nombre_de_reponses"]].rename(columns={"diplome": "Diplome", "domaine" : 'Domaine',"nombre_de_reponses" : "Nombre de réponses"})], 
+                        axis = 0)
+    diplome = diplome.groupby(by = ["Diplome", "Domaine"], as_index = False)["Nombre de réponses"].sum()
+    fig = px.sunburst(diplome, path=["Diplome", "Domaine"], values="Nombre de réponses",color_continuous_scale='RdBu',
+                    color='Nombre de réponses')
+    return fig
+
 
 def build_tab_2():
     return [
@@ -310,7 +249,7 @@ def build_tab_2():
                             children=[
                                 dcc.Tabs(
                                     id="stats-an-tabs",
-                                    value="tab2",
+                                    value="tab21",
                                     className="custom-tabs",
                                     children=[
                                         dcc.Tab(
@@ -497,6 +436,25 @@ def build_tab_3():
                     children=[
                         html.H3("Paramètres"),
                         html.Div(
+                            id="header-container2",
+                            children=[
+                                build_graph_title("Année"),
+                                dcc.Slider(
+                                    id = "annee_par_domaine",
+                                    min=2013,
+                                    max=2016,
+                                    step=None,
+                                    marks={
+                                        2013: '2013',
+                                        2014: '2014',
+                                        2015: '2015',
+                                        2016: '2016'
+                                    },
+                                    value=2013
+                                ),
+                            ],
+                        ),
+                        html.Div(
                             id="header-container",
                             children=[
                                 build_graph_title("Choisissez une discipline :"),
@@ -531,26 +489,8 @@ def build_tab_3():
                                     value = "Sciences, technologies et santé",
                                 ),
                             ],
-                        ),
-                        html.Div(
-                            id="header-container2",
-                            children=[
-                                build_graph_title("Année"),
-                                dcc.Slider(
-                                    id = "annee_par_domaine",
-                                    min=2013,
-                                    max=2016,
-                                    step=None,
-                                    marks={
-                                        2013: '2013',
-                                        2014: '2014',
-                                        2015: '2015',
-                                        2016: '2016'
-                                    },
-                                    value=2013
-                                ),
-                            ],
-                        ),
+                        )
+                        
                     ],
                 ),
                 html.Div(
@@ -559,7 +499,7 @@ def build_tab_3():
                     children=[
                         dcc.Tabs(
                             id="stats-discipline-tabs",
-                            value="tab4",
+                            value="tab31",
                             className="custom-tabs",
                             children=[
                                 dcc.Tab(
@@ -570,14 +510,13 @@ def build_tab_3():
                                             className="row",
                                             id="Femme-discipline-container",
                                             children=[
-                                                
                                                 # Formation des violins
                                                 html.H3("Distribution des parts des femmes"),
                                                 dcc.Graph(id = "part_femmes_par_domaine")
                                                 ],
                                             ),
                                         ],
-                                    value="tab21",
+                                    value="tab31",
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
@@ -595,7 +534,7 @@ def build_tab_3():
                                                 ],
                                             ),
                                         ],
-                                    value="tab22",
+                                    value="tab32",
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
@@ -619,7 +558,7 @@ def build_tab_3():
                                                 ],
                                             ),
                                         ],
-                                    value="tab23",
+                                    value="tab33",
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
@@ -637,7 +576,7 @@ def build_tab_3():
                                                 ],
                                             ),
                                         ],
-                                    value="tab24",
+                                    value="tab34",
                                     className="custom-tab",
                                     selected_className="custom-tab--selected",
                                 ),
@@ -888,6 +827,7 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
                                                                 "emplois_stables" : "Taux d'emplois stables", 
                                                                 "emplois_a_temps_plein" : "Taux d'emplois temps plein", 
                                                                 "salaire_net_median_des_emplois_a_temps_plein" : "Salaire net mensuel médian des emplois à temps plein"})
+
     columns = ['Academie']
     columns.append(statistique_value)
     donnees_carte = pd.DataFrame(donnees_carte, columns = columns)
@@ -915,17 +855,31 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
     Academie = pd.concat([pd.DataFrame({'Departement' : depts}),Academie], axis = 1)
 
     import plotly.graph_objects as go
+    if statistique_value == "Salaire net mensuel médian des emplois à temps plein":
+        etiquette = '<b>Département</b>: <b>%{hovertext}</b>'+ '<br><b>'+ statistique_value +'</b>: %{z} €<br><extra></extra>'
+    else : 
+        etiquette = '<b>Département</b>: <b>%{hovertext}</b>'+ '<br><b>'+ statistique_value +'</b>: %{z} %<br><extra></extra>'
+
     fig = go.Figure(go.Choroplethmapbox(geojson=departement, 
                                             featureidkey="properties.nom",
-                                            locations=Academie["Departement"], z=Academie[statistique_value],
+                                            locations=Academie["Departement"], 
+                                            z=Academie[statistique_value],
+                                            text = Academie["Departement"], 
+                                            hovertext = Academie["Departement"], 
+                                            hovertemplate = etiquette,
                                             zauto=True,
                                             colorscale='viridis',
                                             marker_opacity=0.8,
                                             marker_line_width=0.8,
                                             showscale=True))
-    fig.update_layout(title_text="Statistique par département",
+    fig.update_layout(title={'text':'Statistique par département','xref':'paper','x':0.5},
+                        margin={'l':10,'r':0,'t':50,'b':10},
                         mapbox_style="carto-darkmatter",
-                        mapbox_zoom=4, mapbox_center = {"lat": 48.856614, "lon": 2.3522219})
+                        mapbox_zoom=4, 
+                        mapbox_center = {"lat": 46.7167, "lon": 2.5167})
+    
+
+
     return fig
 
 
@@ -941,8 +895,7 @@ app.layout = html.Div(
                 # Main app
                 html.Div(id="app-content"),
             ],
-        ),
-    generate_modal(),
+        )
         ],
     )
 
@@ -968,15 +921,16 @@ def render_tab_content(tab_switch):
 # ======= Callbacks for modal popup =======
 @app.callback(
     Output("markdown", "style"),
-    [Input("learn-more-button", "n_clicks"), Input("markdown_close", "n_clicks")],
+    [
+    #Input("learn-more-button", "n_clicks"), 
+    Input("markdown_close", "n_clicks")],
 )
-def update_click_output(button_click, close_click):
+def update_click_output(close_click):
     ctx = dash.callback_context
 
     if ctx.triggered:
         prop_id = ctx.triggered[0]["prop_id"].split(".")[0]
-        if prop_id == "learn-more-button":
-            return {"display": "block"}
+        
 
     return {"display": "none"}
 
