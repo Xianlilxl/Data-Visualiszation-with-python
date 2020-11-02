@@ -596,27 +596,25 @@ Dans cette partie, nous présentons les évolutions des statistiques critiques d
 En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
 <br>
 
-![tauxdinsertparan.PNG](images/tauxdinsertparan.PNG)
+![tauxdinsertparan.png](images/tauxdinsertparan.png)
 
-Les taux d’insertion de toutes les disciplines et de tous les diplômes varient légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
-<br>
+Les taux d’insertion de toutes les disciplines, de licence professionnelle et de DUT croissent légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
 
-![cadrestablesparan.PNG](images/cadrestablesparan.PNG)
+![cadrestablesparan.png](images/cadrestablesparan.png)
 L'évolution de la tendance et de la distribution du taux d'emplois cadres de chaque diplôme reste stable au cours des années. En général, les diplômés en master ont plus de chance d’être recruté en tant que cadre que ceux de DUT et de licence professionnelle.
-<br>
+
+![stablesparan.png](images/stablesparan.png)
 
 Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
-<br>
 
+![salairesparan.png](images/salairesparan.png)
 
-
-![salairesparan.PNG](images/salairesparan.PNG)
  la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
- <br>
+
 
 - #### Bilan
 
-A partir de toutes ces observations, on constate une décroissance évidente en « Science, technologie et santé » et « Sciences humains et sociales » dans la part des femmes au cours des années qui apparaît dans tout type de diplôme. A part cela, on peut conclure que les statistiques critiques ne varient pas énormément, la différence se situe principalement entre les différents types de diplôme et les disciplines. 
+A partir de toutes ces observations, on constate une décroissance évidente en « Science, technologie et santé » et « Sciences humains et sociales » dans la part des femmes au cours des années qui apparaît dans tout type de diplôme, ainsi qu'une variation relativement plus énorme en « Sciences humains et sociales » dans tout type de diplôme. A part cela, on peut conclure que les statistiques critiques ne varient pas énormément, la différence se situe principalement entre les différents types de diplôme et les disciplines. 
 
 
 
