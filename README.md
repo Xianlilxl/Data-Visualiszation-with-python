@@ -596,11 +596,11 @@ Dans cette partie, nous présentons les évolutions des statistiques critiques d
 En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
 <br>
 
-![tauxdinsertparan.png](images/tauxdinsertparan.png)
+![tauxinsertparan.png](images/tauxinsertparan.png)
 
 Les taux d’insertion de toutes les disciplines, de licence professionnelle et de DUT croissent légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
 
-![cadrestablesparan.png](images/cadrestablesparan.png)
+![cadreparan.png](images/cadreparan.png)
 L'évolution de la tendance et de la distribution du taux d'emplois cadres de chaque diplôme reste stable au cours des années. En général, les diplômés en master ont plus de chance d’être recruté en tant que cadre que ceux de DUT et de licence professionnelle.
 
 ![stablesparan.png](images/stablesparan.png)
