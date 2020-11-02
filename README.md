@@ -675,7 +675,7 @@ La différence des distributions de la part des femmes réside principalement da
 
 | Licence professionnelle | Master |
 | :----------: | :-----------:  |
-| ![cartelpcadre.PNG](images/cartelpcadre.PNG) | ![cartemastercadre.PNG](images/cartemastercadre.PNG) |
+| ![cartelpcadre.png](images/cartelpcadre.png) | ![cartemastercadre.png](images/cartemastercadre.png) |
 
 Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines. Contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
 
