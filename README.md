@@ -618,28 +618,28 @@ A partir de toutes ces observations, on constate une décroissance évidente en 
 
 ### C. Distributions des disciplines
 
-![salairesparan.PNG](images/salairesparan.PNG)
-Lorsque l’on observe les histogrammes, on a l’impression que les médianes du taux d’insertion de chaque diplôme se rapprochent pour toutes les disciplines. Cependant, on constate avec les « violin Plots » que la distribution de diplômés DUT est plus centrée, contrairement à celle des diplômés en licence professionnelle et en master qui a un grand écart entre les valeurs extrêmes dans toutes les disciplines.
+![tauxdinsertdomaine.PNG](images/tauxdinsertdomaine.PNG)
+Lorsque l’on observe les graphes, on a l’impression que les médianes du taux d’insertion de chaque diplôme se rapprochent pour toutes les disciplines. Cependant, on constate avec les « violin Plots » que la distribution de diplômés DUT est plus centrée, contrairement à celle des diplômés en licence professionnelle et en master qui a un grand écart entre les valeurs extrêmes dans toutes les disciplines.
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
-La différence entre les diplômes réside principalement sur le taux d’emplois cadres.Lorsque l’on observe les histogrammes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chances de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
+![cadredomaine.PNG](images/cadredomaine.PNG)
+La différence entre les diplômes réside principalement sur le taux d’emplois cadres.Lorsque l’on observe les graphes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chances de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
+![stablesdomaine.PNG](images/stablesdomaine.PNG)
 Globalement, les diplômés en licence professionnelle ont plus de chance d’avoir un emploi CDI que ceux diplômés de master et de DUT. Plus de 65% des diplômés en « Science, technologie et santé » ont un emploi stable, 60% des diplômés en « Droit, économie et gestion » et 50% des diplômés en « Science humains et sociales ». 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
-D’après l’histogramme, le taux d’emplois à temps plein est élevé pour tout type de diplôme et pour toute discipline, mais les diplômés en « Science, technologie et santé », en « Droit, économie et gestion » et en « Science, humaines et sociales » ont plus de chance d’avoir un emploi à temps plein. 
+![tempspleindomaine.PNG](images/tempspleindomaine.PNG)
+D’après le graphe, le taux d’emplois à temps plein est élevé pour tout type de diplôme et pour toute discipline, mais les diplômés en « Science, technologie et santé », en « Droit, économie et gestion » et en « Science, humaines et sociales » ont plus de chance d’avoir un emploi à temps plein. 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
-Au niveau des diplômes, la part des femmes en master est la plus élevée sauf en « Droit, économie et gestion », dans laquelle  la part des femmes en licence professionnelle est légèrement plus élevée. La différence évidente entre les différents diplômes se situe dans la discipline « Science, technologie et santé ». De plus, la médiane de la part des femmes dans la discipline « Science, technologie et santé » est la plus basse parmi toutes les disciplines de nos jeux de données : 40%, contre plus de 50% dans les autres disciplines.Cependant, malgré cette différence entre disciplines et types de diplôme, les distributions de ces derniers restent dispersées.
+![femmesdomaine.PNG](images/femmesdomaine.PNG)
+Au niveau des diplômes, la part des femmes en master est la plus élevée sauf en « Droit, économie et gestion », dans laquelle  la part des femmes en licence professionnelle est légèrement plus élevée. La différence évidente entre les différents diplômes se situe dans la discipline « Science, technologie et santé ». De plus, la médiane de la part des femmes dans la discipline « Science, technologie et santé » est la plus basse parmi toutes les disciplines de nos jeux de données : 40%, contre plus de 50% dans les autres disciplines. Cependant, malgré cette différence entre disciplines et types de diplôme, les distributions de ces derniers restent dispersées.
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
-D’après l’histogramme, les diplômés en master gagnent le plus dans toutes les disciplines, devant ceux de licence professionnelle et de DUT. Cependant, on constate une grande disparité des salaires entre diplômés pour les masters, contrairement à ceux de DUT et de licence professionnelle. Au niveau des disciplines, ceux qui choisissent « Science, technologie et santé » gagnent le plus, suivis de « Droit, économie et gestion » et de « Sciences humaines et sociales ».
+![salairedomaine.PNG](images/salairedomaine.PNG)
+D’après le graphe, les diplômés en master gagnent le plus dans toutes les disciplines, devant ceux de licence professionnelle et de DUT. Cependant, on constate une grande disparité des salaires entre diplômés pour les masters, contrairement à ceux de DUT et de licence professionnelle. Au niveau des disciplines, ceux qui choisissent « Science, technologie et santé » gagnent le plus, suivis de « Droit, économie et gestion » et de « Sciences humaines et sociales ».
 <br>
 
 En combinant nos jeux de données, on a découvert que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire. Cependant, il grande disparité entre ces valeurs. 
@@ -649,19 +649,19 @@ Si on se concentre sur les disciplines, on peut conclure que les diplômés en �
 Les taux d’insertion, d’emplois stables et d’emplois à temps plein de tout type de diplôme présentent une homogénéité dans tous les départements, et cela ne  varient pas en fonction des disciplines. 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
+![femmescarte.PNG](images/femmescarte.PNG)
 La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt que les départements, sauf en « Science humaines et sociales ».
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
+![femmesdomaine2.PNG](images/femmesdomaine2.PNG)
 La part des femmes parmi les diplômés de licence professionnelle du sud et de l’est de la France s’élève à 90%. 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
+![cadrecarte.PNG](images/cadrecarte.PNG)
 Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines. Contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
 <br>
 
-![salairesparan.PNG](images/salairesparan.PNG)
+![salairecarte.PNG](images/salairecarte.PNG)
 En analysant les salaires nets mensuels des diplômés de licence professionnelle, on constate une croissance dans les départements autour de l’Île-de-France dans toutes les disciplines. Quant aux diplômés de master, les salaires nets mensuels sont en général plus élevés comparés aux licences professionnelles. 
 <br>
 
