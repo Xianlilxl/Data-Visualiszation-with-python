@@ -592,7 +592,12 @@ Dans cette partie, nous présentons les évolutions des statistiques critiques d
 
 - #### Analyse temporelle
 
+![femmesparan.PNG](images/femmesparan.PNG)
+En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
+<br>
+
 ![tauxdinsertparan.PNG](images/tauxdinsertparan.PNG)
+
 Les taux d’insertion de toutes les disciplines et de tous les diplômes varient légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
 <br>
 
@@ -603,9 +608,7 @@ L'évolution de la tendance et de la distribution du taux d'emplois cadres de ch
 Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
 <br>
 
-![femmesparan.PNG](images/femmesparan.PNG)
-En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
-<br>
+
 
 ![salairesparan.PNG](images/salairesparan.PNG)
  la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
