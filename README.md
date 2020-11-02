@@ -577,7 +577,11 @@ Celui-ci est composé de **11873 observations** et de **32 variables**.
 ### A. Distribution des échantillons 
 
 Dans un premier temps, pour représenter la structure de nos jeux de données, nous avons affiché sur la partie supérieure de la page un histogramme du nombre d'échantillons de chaque diplôme. Au cours des années, la proportion de ces jeux de données ne varient pas énormément, le jeu de données sur les masters est le plus conséquent par rapport à ceux sur les licences professionnelles et les diplômes universitaires de technologie (DUT).
+<br>
+
 Le diagramme à bandes montre les pourcentages de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit. La proportion de ces derniers reste également stable au cours du temps. La discipline « Science, technologie et santé » représente toujours la majorité des échantillons dans les trois jeux de données. Les disciplines « Droit économie et gestion » et « Sciences humaines et sociales » sont en deuxième et troisième position. La discipline « Lettres, langues, arts » est la plus minoritaire pour tout type de diplôme.
+<br>
+
 La carte des départements de la France métropolitaine dans la partie inférieure de la page montre les pourcentages d'échantillons de l’année, de la discipline et du diplôme choisis avec le nom de chaque département. Le jeu de données sur les DUT n’ayant pas de données géographiques, nous présentons uniquement la cartographie des données de licences professionnelles et de masters. Comme vu avec le diagramme à bandes, la proportion des différentes disciplines ne se varient pas au cours des années. Pourtant, dans beaucoup de départements, les diplômés de licence professionnelle en « Science, technologie et santé » prennent plus de 50% des échantillons, tout comme ceux de master qui sont légèrement plus nombreux en « Droit économie et gestion ». Au contraire, les diplômés en « Lettres, langues, arts » reste minoritaires pour tout type de diplôme et ne prennent pas plus que 10% dans tous les départements.
 
 
@@ -585,51 +589,73 @@ La carte des départements de la France métropolitaine dans la partie inférieu
 ### B. Statistiques par an
 
 Dans cette partie, nous présentons les évolutions des statistiques critiques de chaque diplôme au cours des années (2010 à 2016) en prenant en compte les médianes, ainsi que les distributions de ces dernières. 
+<br>
+
 Les taux d’insertion de toutes les disciplines et de tous les diplômes varient légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
+<br>
+
 L'évolution de la tendance et de la distribution du taux d'emplois cadres de chaque diplôme reste stable au cours des années. En général, les diplômés en master ont plus de chance d’être recruté en tant que cadre que ceux de DUT et de licence professionnelle.
+<br>
+
 Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
 La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
+<br>
+
 En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
+<br>
+
  la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
-Bilan :
+ <br>
+
+
 A partir de toutes ces observations, on constate une décroissance évidente en « Science, technologie et santé » et « Sciences humains et sociales » dans la part des femmes au cours des années qui apparaît dans tout type de diplôme. A part cela, on peut conclure que les statistiques critiques ne varient pas énormément, la différence se situe principalement entre les différents types de diplôme et les disciplines. 
 
 
 
 ### C. Distributions des disciplines
 
-
-- #### Taux d'insertion
 Lorsque l’on observe les histogrammes, on a l’impression que les médianes du taux d’insertion de chaque diplôme se rapprochent pour toutes les disciplines. Cependant, on constate avec les « violin Plots » que la distribution de diplômés DUT est plus centrée, contrairement à celle des diplômés en licence professionnelle et en master qui a un grand écart entre les valeurs extrêmes dans toutes les disciplines.
+<br>
 
-- #### Emplois cadre
 La différence entre les diplômes réside principalement sur le taux d’emplois cadres.Lorsque l’on observe les histogrammes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chances de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
+<br>
 
-- #### Emplois stables
 Globalement, les diplômés en licence professionnelle ont plus de chance d’avoir un emploi CDI que ceux diplômés de master et de DUT. Plus de 65% des diplômés en « Science, technologie et santé » ont un emploi stable, 60% des diplômés en « Droit, économie et gestion » et 50% des diplômés en « Science humains et sociales ». 
+<br>
 
-- #### Emplois à temps plein 
 D’après l’histogramme, le taux d’emplois à temps plein est élevé pour tout type de diplôme et pour toute discipline, mais les diplômés en « Science, technologie et santé », en « Droit, économie et gestion » et en « Science, humaines et sociales » ont plus de chance d’avoir un emploi à temps plein. 
+<br>
 
-- #### Part des femmes
 Au niveau des diplômes, la part des femmes en master est la plus élevée sauf en « Droit, économie et gestion », dans laquelle  la part des femmes en licence professionnelle est légèrement plus élevée. La différence évidente entre les différents diplômes se situe dans la discipline « Science, technologie et santé ». De plus, la médiane de la part des femmes dans la discipline « Science, technologie et santé » est la plus basse parmi toutes les disciplines de nos jeux de données : 40%, contre plus de 50% dans les autres disciplines.Cependant, malgré cette différence entre disciplines et types de diplôme, les distributions de ces derniers restent dispersées.
+<br>
 
-- #### Salaires
 D’après l’histogramme, les diplômés en master gagnent le plus dans toutes les disciplines, devant ceux de licence professionnelle et de DUT. Cependant, on constate une grande disparité des salaires entre diplômés pour les masters, contrairement à ceux de DUT et de licence professionnelle. Au niveau des disciplines, ceux qui choisissent « Science, technologie et santé » gagnent le plus, suivis de « Droit, économie et gestion » et de « Sciences humaines et sociales ».
+<br>
 
-- #### Bilan 
 En combinant nos jeux de données, on a découvert que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire. Cependant, il grande disparité entre ces valeurs. 
 Si on se concentre sur les disciplines, on peut conclure que les diplômés en « Science, technologie et santé », ont le plus de chance de trouver un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, suivis par les diplômés en « Droit économie et gestion », en « Sciences humains et sociales » et en « Lettres, langues, arts ». Cependant la part des femmes en “Sciences, technologie et santé” est très basse comparée aux autres disciplines avec une croissance en master au cours des années qui reste insuffisante.
 
 ### D. Statistiques par département 
 Les taux d’insertion, d’emplois stables et d’emplois à temps plein de tout type de diplôme présentent une homogénéité dans tous les départements, et cela ne  varient pas en fonction des disciplines. 
+<br>
+
 La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt que les départements, sauf en « Science humaines et sociales ».
+<br>
+
 La part des femmes parmi les diplômés de licence professionnelle du sud et de l’est de la France s’élève à 90%. 
+<br>
+
 Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines. Contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
+<br>
+
 En analysant les salaires nets mensuels des diplômés de licence professionnelle, on constate une croissance dans les départements autour de l’Île-de-France dans toutes les disciplines. Quant aux diplômés de master, les salaires nets mensuels sont en général plus élevés comparés aux licences professionnelles. 
-Bilan : 
+<br>
+
+
 A partir de toutes ces observations, on conclut que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, de plus on constate une croissance évidente de ces statistiques critiques dans les départements autour de  l’Île-de-France, au sud et à l’est de la France.
-Conclusion : 
+<br>
+
+## Conclusion 
 Pour conclure, on peut dire qu’il est plus intéressant d’avoir un master en « Science, technologie et santé » et en « Droit économie et gestion » autour de l’Ile-de-France, au sud et à l’est de la France pour avoir plus facilement un emploi stable à temps plein. 
 Les autres diplômes permettent plus facilement d’avoir un emploi à temps plein, mais il est plus difficile d’avoir un emploi en tant que cadre ou bien rémunéré. 
 Il ne faut non plus négliger le choix de la discipline. En effet, les disciplines « Science humaines et sociales » et « Lettres, langues, arts » ne permettent pas, par exemple, d’être bien rémunéré ou d’être cadre. 
