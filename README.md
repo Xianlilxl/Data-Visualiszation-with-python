@@ -1,8 +1,8 @@
 # Introduction
 
-Dans le cadre du module "*Python pour la datascience*" (**DSIA-4101A**), nous avons eu l'opportunité de réutiliser les notions de langage Python vues dans le cours pour produire un rapport d'étude sur un sujet que l'on choisit, en répondant à une problématique. Le travail fut réaliser en binôme et l'objectif fut de produire un Dash d'un jeu de données accessibles publiquement et non modifiées.
+Dans le cadre du module "*Python pour la datascience*" (**DSIA-4101A**), nous avons eu l'opportunité de réutiliser les notions de langage Python vues dans le cours pour produire un rapport d'étude sur un sujet que nous avons choisi, en répondant à une problématique. Le travail a été réalisé en binôme et l'objectif a été de produire un Dash d'un jeu de données accessibles publiquement et non modifiées.
 
-Notre responsable fut **COURIVAUD Daniel**, et notre binôme fut composé de  **Andrianihary RAZAFINDRAMISA** et de **Xianli LI**.
+Notre responsable est Monsieur **COURIVAUD Daniel**, et notre binôme est composé de Mademoiselle **Andrianihary RAZAFINDRAMISA** et de Mademoiselle **Xianli LI**.
   
 Nous avons choisi de travailler sur les jeux de données :
 - *[Insertion professionnelle des diplômé.e.s de Diplôme universitaire de technologie (DUT) en universités et établissements assimilés - données nationales par disciplines détaillées](https://www.data.gouv.fr/fr/datasets/insertion-professionnelle-des-diplome-e-s-de-diplome-universitaire-de-technologie-dut-en-universites-et-etablissements-assimiles-donnees-nationales-par-disciplines-detaillees/#_)*
@@ -30,7 +30,7 @@ ___
 ## 1. Installation & Téléchargement
 
 ### A. Python
-Dans un premier temps, afin d'exploiter notre projet, il faudra télécharger et installer le langage de base ***Python v3.X.X*** sur votre appareil. Pour cela, que votre appareil soit sous Linux, macOS, Windows ou autre, vous pouvez trouver la page de téléchargement de Python en cliquant [ici](https://www.python.org/downloads/). Puis suivez les instructions d'installation.
+Dans un premier temps, afin d'exploiter notre projet, il est nécessaire de télécharger et installer le langage de base ***Python v3.X.X*** sur votre appareil. Pour cela, que votre appareil soit sous Linux, macOS, Windows ou autre, vous pouvez trouver la page de téléchargement de Python en cliquant [ici](https://www.python.org/downloads/), puis suivre les instructions d'installation.
 
 Après l'installation, vérifiez le fonctionnement sur votre appareil en tapant les commandes suivantes sur le terminal, l'nvite de commandes, le PowerShell ou autre selon votre système d'exploitation:
 
@@ -50,13 +50,13 @@ Dans le cas où vous n'avez pas ***Python v3.X.X*** en résultat, il faut réins
 
 ### B. *pip*
 
-Dans un second temps, des packages supplémentaires sont nécessaires au bon fonctionnement de notre projet alors il faudra installer *pip* (si la version de Python est plus ancienne que **Python 2.7.9** ou **Python 3.4**) grâce à ce [lien](https://pip.pypa.io/en/stable/installing/).
+Dans un second temps, des packages supplémentaires sont nécessaires au bon fonctionnement de notre projet. Il faudra alors installer *pip* (si la version de Python est plus ancienne que **Python 2.7.9** ou **Python 3.4**) grâce à ce [lien](https://pip.pypa.io/en/stable/installing/).
 
 ### C. Le dashboard
 
 #### Télécharger le projet
 
-Le projet se trouve sur un dépôt Git se situant sur [cette page](https://git.esiee.fr/lix/projet-python). Ce dépôt pourra être "*cloné*" dans un répertoire de travail que vous avez créé sur votre ordinateur.
+Le projet se trouve sur un dépôt Git se situant sur [cette page](https://git.esiee.fr/lix/projet-python). Ce dépôt pourra être "*cloné*" dans un répertoire de travail que vous avez déjà créé sur votre ordinateur.
 
 #### Packages nécessaires
 
@@ -111,7 +111,7 @@ où "package" est le nom du package à installer.
 
 ### A. Windows
 
-Lancez un invité de commande/cmd/powershell puis placez vous dans le dossier du projet:
+Lancez un invité de commande/cmd/powershell puis placez-vous dans le dossier du projet:
 
 - Sous CMD
 ```shell
@@ -153,7 +153,7 @@ Ou
 $ python main.py
 ```
 
-Une fois exécuté, vous devriez avoir cet affichage :
+Une fois exécuté, vous devriez voir cet affichage :
 ```bash
 $ python3 main.py
 Dash is running on http://127.0.0.1:8050/
@@ -171,7 +171,7 @@ Une fois éxécuté, le "*dashboard*" est accessible à l'adresse [http://127.0.
 
 ### A. Bar de navigation
 
-Lorsque l'installation et l'éxecution ont bien été respéctés alors on se retrouve sur la page suivante:  
+Lorsque l'installation et l'éxecution ont bien été respéctées, on se retrouve sur la page suivante:  
 
 ![menu.PNG](images/menu.PNG)
 
@@ -307,7 +307,7 @@ La partie gauche de la page présente les paramètres permettant d'intéragir av
 
 ![cartetauxdinsert.png](images/cartetauxdinsert.png)
 
-La partie en bas de la page affiche une carte des départements de la France métropolitaine. On peut intéragir avec cette dernière grâce aux paramètres, situé en haut de la carte. Ils permettent de choisir une discipline, un diplôme et une statistique afin d'afficher sur la carte le nom de chaque département avec les valeurs de la statistique choisie en fonction de la discipline et du diplôme choisis. Cela permet d'avoir plus d'informations sur un département spécifique grâce à une représentation géolocalisée des statistiques. De plus, cela permet de comparer un département, une région ou une académie par rapport à d'autres.
+La partie en bas de la page affiche une carte des départements de la France métropolitaine. On peut intéragir avec cette dernière grâce aux paramètres situés en haut de la carte. Ils permettent de choisir une discipline, un diplôme et une statistique afin d'afficher sur la carte le nom de chaque département avec les valeurs de la statistique choisie en fonction de la discipline et du diplôme choisis. Cela permet d'avoir plus d'informations sur un département spécifique grâce à une représentation géolocalisée des statistiques. De plus, cela permet de comparer un département, une région ou une académie par rapport à d'autres.
 Pour pouvoir représenter les statistiques de chaque département sur la carte, nous avons décidé de prendre la médiane des données de chaque département étant donné que la taille des données est conséquente. Nous avons choisi la médiane, plutôt que la moyenne, car celle-ci est plus représentative.
 
 # II. Guide développeur
@@ -340,7 +340,7 @@ Ce fichier contient le code permettant le traitement des données afin que l'on 
 
 ### D. *README.md*
 
-Le présent fichier *Markdown* qui contient:
+Le présent fichier *Markdown* contient:
 - la présentation du projet avec la problématique,
 - le guide de l'utilisateur avec les instructions d'exécution,
 - le guide du développeur,
@@ -394,7 +394,7 @@ import plotly.graph_objects as go
 
 Dans cette section, on crée l'interface de l'application en définissant le contenu du menu et du corps de l'application. 
 
-##### - La bar de navigation
+##### - La barre de navigation
 
 ```bash
 ...
@@ -448,7 +448,7 @@ def build_tabs():
 ...
 ```
 
-Ici on crée la bar de navigation.
+Ici on crée la barre de navigation.
 
 ##### - Le corps de l'application
 
@@ -467,7 +467,7 @@ def build_tab_1():
                         html.Div(
                             id="map-container",
                             children=[
-                                # le Slider filtre les données alimentant les trois graphes en dessous en fonction de l'année
+                                # les deux graphes sont alimentés en fonction de l'année par le Slider qui filtre les données
                                 html.H3("Paramètres"),
                                 html.Div(
                                     id="header-container2",
@@ -489,7 +489,7 @@ def build_tab_1():
                                     ],
                                 ), 
                                 html.Div([
-                                    # Le graphe des nombres d'échantillons de chaque diplôme(DUT, Licence professionnel et Master)
+                                    # Le graphe des nombres d'échantillons de chaque diplôme(DUT, Licence professionnelle et Master)
                                     html.Div([
                                         #html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
                                         dcc.Graph(id = "histo_diplome")
@@ -593,7 +593,7 @@ Dans cette partie, nous présentons les évolutions des statistiques critiques d
 
 - #### Analyse temporelle
 
-![femmesparan.PNG](images/femmesparan.PNG)
+![femmes_paran.PNG](images/femmes_paran.PNG)
 En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
 <br>
 
@@ -606,22 +606,22 @@ L'évolution de la tendance et de la distribution du taux d'emplois cadres de ch
 
 ![stablesparan.png](images/stablesparan.png)
 
-Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
+Ici, un emploi stable signifie emploi à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
 
 ![salaireparan.png](images/salaireparan.png)
 
- la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
+ La tendance et la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
 
 
 - #### Bilan
 
-A partir de toutes ces observations, on constate une décroissance évidente en « Science, technologie et santé » et « Sciences humains et sociales » dans la part des femmes au cours des années qui apparaît dans tout type de diplôme, ainsi qu'une variation relativement plus énorme en « Sciences humains et sociales » dans tout type de diplôme. A part cela, on peut conclure que les statistiques critiques ne varient pas énormément, la différence se situe principalement entre les différents types de diplôme et les disciplines. 
+A partir de toutes ces observations, on constate une décroissance évidente en « Science, technologie et santé » et en « Sciences humains et sociales » dans la part des femmes au cours des années qui apparaît dans tout type de diplôme, ainsi qu'une variation relativement plus élevée en « Sciences humains et sociales » dans tout type de diplôme. Néanmoins, on peut conclure que les statistiques critiques ne varient pas énormément, la différence se situe principalement entre les différents types de diplôme et les disciplines. 
 
 
 
 ### C. Distributions des disciplines
 
-Dans cette partie, on se concentre sur la différence entre les discplines en vous montrant des distributions des statistiques critiques dans chaque discipline et chaque année, qui peuvent être considérées comme une précision de la partie précédente, ainsi qu'une comparaison entre les différents diplômes. Un box Plot et un violin Plot par statistique illustrent ces distributions.
+Dans cette partie, on se concentre sur la différence entre les discplines en vous montrant les distributions des statistiques critiques dans chaque discipline et chaque année, qui peuvent être considérées comme une précision de la partie précédente, ainsi qu'une comparaison entre les différents diplômes. Un box Plot et un violin Plot par statistique illustrent ces distributions.
 
 - #### Analyse temporelle
 
@@ -629,24 +629,24 @@ Dans cette partie, on se concentre sur la différence entre les discplines en vo
 | :----------: | :-----------:  |
 | ![femmesscience.png](images/femmesscience.png) | ![femmesdroit.png](images/femmesdroit.png) |
 
-Au niveau des diplômes, la part des femmes en master est la plus élevée sauf en « Droit, économie et gestion », dans laquelle la part des femmes en licence professionnelle est légèrement plus élevée. La différence évidente entre les différents diplômes se situe dans la discipline « Science, technologie et santé ». De plus, la médiane de la part des femmes dans la discipline « Science, technologie et santé » est la plus basse parmi toutes les disciplines de nos jeux de données : 40%, contre plus de 50% dans les autres disciplines.Cependant, malgré cette différence entre disciplines et types de diplôme, les distributions de ces derniers restent dispersées.
+Au niveau des diplômes, la part des femmes en master est la plus élevée sauf en « Droit, économie et gestion ». Dans cette discipline, la part des femmes en licence professionnelle est légèrement plus élevée. La différence évidente entre les différents diplômes se situe dans la discipline « Science, technologie et santé ». De plus, la médiane de la part des femmes dans la discipline « Science, technologie et santé » est la plus basse parmi toutes les disciplines de nos jeux de données : 40%, contre plus de 50% dans les autres disciplines. Cependant, malgré cette différence entre disciplines et types de diplôme, les distributions de ces derniers restent dispersées.
 
 ![tauxinsertdomaine.png](images/tauxinsertdomaine.png)
-Lorsque l’on observe le graphe, on a l’impression que les médianes du taux d’insertion de chaque diplôme se rapprochent pour toutes les disciplines. Cependant, on constate avec les « violin Plots » que la distribution de diplômés DUT est plus centrée, contrairement à celle des diplômés en licence professionnelle et en master qui a un grand écart entre les valeurs extrêmes dans toutes les disciplines.
+Lorsque l’on observe le graphe, on a l’impression que les médianes du taux d’insertion de chaque diplôme se rapprochent pour toutes les disciplines. Cependant, on constate avec les « violin Plots » que la distribution de diplômés DUT est plus centrée, contrairement à celle des diplômés en licence professionnelle et en master, qui a un grand écart entre les valeurs extrêmes dans toutes les disciplines.
 
 | Science, technologie et santé | Droit économie et gestion | Sciences humains et sociales |
 | :----------: | :-----------:  | :-----------: |
 | ![cadrescience.png](images/cadrescience.png) | ![cadredroit.png](images/cadredroit.png) | ![cadrehumains.png](images/cadrehumains.png) |
 
-La différence entre les diplômes réside principalement sur le taux d’emplois cadres. Lorsque l’on observe les graphes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chances de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
+La différence entre les diplômes réside principalement sur le taux d’emplois cadres. Lorsque l’on observe les graphes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chance de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
 
 ![stabledomaine.png](images/stabledomaine.png)
 
-Globalement, les diplômés en licence professionnelle ont plus de chance d’avoir un emploi CDI que ceux diplômés de master et de DUT. Plus de 65% des diplômés en « Science, technologie et santé » ont un emploi stable, 60% des diplômés en « Droit, économie et gestion » et 50% des diplômés en « Science humains et sociales ». 
+Globalement, les diplômés en licence professionnelle ont plus de chance d’avoir un emploi CDI que ceux diplômés de master et de DUT. Plus de 65% des diplômés en « Science, technologie et santé » ont un emploi stable, 60% des diplômés en « Droit, économie et gestion » et 50% des diplômés en « Sciences humaines et sociales ». 
 
 ![tempsplein_domaine.png](images/tempsplein_domaine.png)
 
-D’après le graphe, le taux d’emplois à temps plein est élevé pour tout type de diplôme et pour toute discipline, mais les diplômés en « Science, technologie et santé », en « Droit, économie et gestion » et en « Science, humaines et sociales » ont plus de chance d’avoir un emploi à temps plein. 
+D’après le graphe, le taux d’emplois à temps plein est élevé pour tout type de diplôme et pour toute discipline, mais les diplômés en « Science, technologie et santé », en « Droit, économie et gestion » et en « Sciences humaines et sociales » ont plus de chance d’avoir un emploi à temps plein. 
 
 
 ![salairesdomaine.png](images/salairesdomaine.png)
@@ -655,8 +655,8 @@ D’après le graphe, les diplômés en master gagnent le plus dans toutes les d
 
 - #### Bilan
 
-En combinant nos jeux de données, on a découvert que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire. Cependant, il grande disparité entre ces valeurs. 
-Si on se concentre sur les disciplines, on peut conclure que les diplômés en « Science, technologie et santé », ont le plus de chance de trouver un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, suivis par les diplômés en « Droit économie et gestion », en « Sciences humains et sociales » et en « Lettres, langues, arts ». Cependant la part des femmes en “Sciences, technologie et santé” est très basse comparée aux autres disciplines avec une croissance en master au cours des années qui reste insuffisante.
+En combinant nos jeux de données, on a découvert que les diplômés en master, toutes disciplines confondues, ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire. Cependant, il existe une grande disparité entre ces valeurs. 
+Si on se concentre sur les disciplines, on peut conclure que les diplômés en « Science, technologie et santé », ont le plus de chance de trouver un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, suivis des diplômés en « Droit économie et gestion », en « Sciences humains et sociales » et en « Lettres, langues, arts ». Cependant, la part des femmes en “Sciences, technologie et santé” est très basse comparée aux autres disciplines avec une croissance en master au cours des années qui reste insuffisante.
 
 ### D. Statistiques par département 
 
@@ -672,13 +672,13 @@ Les taux d’insertion, d’emplois stables et d’emplois à temps plein de tou
 
 ![femmecarte.png](images/femmecarte.png)
 
-La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt que les départements, sauf en « Science humaines et sociales ». La part des femmes parmi les diplômés de licence professionnelle du sud et de l’est de la France s’élève à 90%. 
+La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt qu'au niveau des départements, sauf en « Science humaines et sociales ». La part des femmes parmi les diplômés de licence professionnelle issus du sud et de l’est de la France s’élève à 90%. 
 
 | Licence professionnelle | Master |
 | :----------: | :-----------:  |
 | ![cartelpcadre.png](images/cartelpcadre.png) | ![cartemastercadre.png](images/cartemastercadre.png) |
 
-Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines. Contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
+Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines, contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
 
 ![salairescarte.png](images/salairescarte.png)
 En analysant les salaires nets mensuels des diplômés de licence professionnelle, on constate une croissance dans les départements autour de l’Île-de-France dans toutes les disciplines. Quant aux diplômés de master, les salaires nets mensuels sont en général plus élevés comparés aux licences professionnelles. 
@@ -686,10 +686,10 @@ En analysant les salaires nets mensuels des diplômés de licence professionnell
 
 - #### Bilan
 
-A partir de toutes ces observations, on conclut que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, de plus on constate une croissance évidente de ces statistiques critiques dans les départements autour de l’Île-de-France, au sud et à l’est de la France.
+A partir de toutes ces observations, on conclut que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire. De plus? on constate une croissance évidente de ces statistiques critiques dans les départements autour de l’Île-de-France, au sud et à l’est de la France.
 
 ## 3. Conclusion 
 Pour conclure, on peut dire qu’il est plus intéressant d’avoir un master en « Science, technologie et santé » et en « Droit économie et gestion » autour de l’Ile-de-France, au sud et à l’est de la France pour avoir plus facilement un emploi stable à temps plein. 
-Les autres diplômes permettent plus facilement d’avoir un emploi à temps plein, mais il est plus difficile d’avoir un emploi en tant que cadre ou bien rémunéré. 
+Les autres diplômes permettent plus facilement d’avoir un emploi à temps plein, mais il est plus difficile d’obtenir un emploi en tant que cadre ou d'être bien rémunéré. 
 Il ne faut non plus négliger le choix de la discipline. En effet, les disciplines « Science humaines et sociales » et « Lettres, langues, arts » ne permettent pas, par exemple, d’être bien rémunéré ou d’être cadre. 
 Ainsi, le choix des diplômes et du nombre d’années d’études sont primordiaux pour l’insertion professionnelle.

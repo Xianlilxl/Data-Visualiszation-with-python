@@ -126,7 +126,7 @@ def build_tab_1():
                         html.Div(
                             id="map-container",
                             children=[
-                                # le Slider filtre les données alimentant les trois graphes en dessous en fonction de l'année
+                                # les deux graphes sont alimentés en fonction de l'année par le Slider qui filtre les données
                                 html.H3("Paramètres"),
                                 html.Div(
                                     id="header-container2",
