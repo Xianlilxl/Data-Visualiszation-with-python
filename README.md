@@ -257,38 +257,38 @@ Ce bloc permet de contrôler les différents graphes présents dans le bloc inf�
 
 ![tauxinsertdomaine.png](images/tauxinsertdomaine.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique du taux d'insertion (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique du taux d'insertion (en %) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'insertion (en %) de chaque diplôme. 
 
 - #### Distribution des disciplines des statistiques d'emplois
 
 ![cadrescience.png](images/cadrescience.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois cadres (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois cadres (en %) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois cadres (en %) de chaque diplôme.
 
 ![stabledomaine.png](images/stabledomaine.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois stables (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois stables (en %) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois stables (en %) de chaque diplôme.
 
 ![tempsplein_domaine.png](images/tempsplein_domaine.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois à temps plein (en %) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois à temps plein (en %) de chaque diplôme.
 
 - #### Distribution des disciplines de la part des femmes
 
 ![femmesscience.png](images/femmesscience.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique de la part des femmes (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique de la part des femmes (en %) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée la part des femmes (en %) de chaque diplôme.
 
 - #### Distribution des disciplines des salaires nets mensuels
 
 ![salairesdomaine.png](images/salairesdomaine.png)
 
-Le violin plot montre une représentation abstraite de la distribution empirique des salaires nets mensuels (en euros) de chaque diplôme au cours des années et en fonction de la discipline choisie.
+Le violin plot montre une représentation abstraite de la distribution empirique des salaires nets mensuels (en euros) de chaque diplôme et en fonction de l'année et de la discipline choisies.
 L'abscisse représente les types de diplôme et l'ordonnée les salaires nets mensuels (en euros) de chaque diplôme.
 
 ### E. *Statistiques par département*
@@ -307,7 +307,7 @@ La partie gauche de la page présente les paramètres permettant d'intéragir av
 
 ![cartetauxdinsert.png](images/cartetauxdinsert.png)
 
-La partie droite de la page affiche une carte des départements de la France métropolitaine. On peut intéragir avec cette dernière grâce aux paramètres, situé à gauche de la carte. Ils permettent de choisir une discipline, un diplôme et une statistique afin d'afficher sur la carte le nom de chaque département avec les valeurs de la statistique choisie en fonction de la discipline et du diplôme choisis. Cela permet d'avoir plus d'informations sur un département spécifique grâce à une représentation géolocalisée des statistiques. De plus, cela permet de comparer un département, une région ou une académie par rapport à d'autres.
+La partie en bas de la page affiche une carte des départements de la France métropolitaine. On peut intéragir avec cette dernière grâce aux paramètres, situé en haut de la carte. Ils permettent de choisir une discipline, un diplôme et une statistique afin d'afficher sur la carte le nom de chaque département avec les valeurs de la statistique choisie en fonction de la discipline et du diplôme choisis. Cela permet d'avoir plus d'informations sur un département spécifique grâce à une représentation géolocalisée des statistiques. De plus, cela permet de comparer un département, une région ou une académie par rapport à d'autres.
 Pour pouvoir représenter les statistiques de chaque département sur la carte, nous avons décidé de prendre la médiane des données de chaque département étant donné que la taille des données est conséquente. Nous avons choisi la médiane, plutôt que la moyenne, car celle-ci est plus représentative.
 
 # II. Guide développeur
