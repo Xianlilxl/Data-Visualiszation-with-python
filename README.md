@@ -607,7 +607,7 @@ L'évolution de la tendance et de la distribution du taux d'emplois cadres de ch
 
 Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
 
-![salairesparan.png](images/salairesparan.png)
+![salaireparan.png](images/salaireparan.png)
 
  la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
 
