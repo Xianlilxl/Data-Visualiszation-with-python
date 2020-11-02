@@ -572,6 +572,8 @@ On y retrouve le pourcentage de diplômés occupant un emploi, quel qu'il soit, 
 Celui-ci est composé de **11873 observations** et de **32 variables**.
 
 <br>
+
+## 2. Analyse  
 ### A. Distribution des échantillons 
 
 Dans un premier temps, pour représenter la structure de nos jeux de données, nous avons affiché sur la partie supérieure de la page un histogramme du nombre d'échantillons de chaque diplôme. Au cours des années, la proportion de ces jeux de données ne varient pas énormément, le jeu de données sur les masters est le plus conséquent par rapport à ceux sur les licences professionnelles et les diplômes universitaires de technologie (DUT).
