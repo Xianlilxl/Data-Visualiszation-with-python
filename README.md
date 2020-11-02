@@ -186,7 +186,7 @@ Ces pages sont accessibles en cliquant sur leur label, sous le titre, en haut de
 
 Une fois l'installation et l'exécution réussies, l'application s'ouvre sur la page suivante:
 
-![dde.PNG](images/dde.PNG)
+![pageechanti.PNG](images/pageechanti.PNG)
 
 - #### Paramètres
 
@@ -196,13 +196,13 @@ La partie supérieure de la page présente les paramètres permettant d'intérag
 
 - #### Partie principale
 
-![dde.PNG](images/dde.PNG)
+![pageechanti.PNG](images/pageechanti.PNG)
 
 La partie inférieure de la page affiche un histogramme du nombre d'échantillons de chaque diplôme, et un camembert du pourcentage de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit avec le "*slider*" situé au-dessus des graphes. En plus de définir une année, le slider permet également de les faire défiler. Cela permet de voir la progression et la distribution du nombre d'échantillons et du pourcentage de chaque discipline au cours des années.
 
 ### C. *Statistiques par an*
 
-![spa.PNG](images/spa.PNG)
+![pageparan.PNG](images/pageparan.PNG)
 
 - #### Paramètres
 
@@ -210,41 +210,42 @@ La partie inférieure de la page affiche un histogramme du nombre d'échantillon
 
 Ce bloc permet de contrôler les différents graphes présents dans le bloc inférieur, en modifiant la *discipline*.
 
+
 - #### Evolution du taux d'insertion au cours du temps
 
-![spa_ti.PNG](images/spa_ti.PNG)
-
+![tauxinsertparan.png](images/tauxinsertparan.png)
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'insertion (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'insertion (en %).
 
 - #### Evolution des statistiques des emplois au cours du temps 
 
-![spa_se_1.PNG](images/spa_se_1.PNG)
+![cadreparan.png](images/cadreparan.png)
 
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emplois cadres (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'emplois cadres (en %).
 
-![spa_se_2.PNG](images/spa_se_2.PNG)
+![stablesparan.png](images/stablesparan.png)
 
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emplois stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'emplois stables (en %).
 
-![spa_se_3.PNG](images/spa_se_3.PNG)
+![femmesparan.PNG](images/femmesparan.PNG)
 
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'emplois à temps plein (en %).
 
 - #### Evolution de la part des femmes au cours du temps
 
-![spa_pf.PNG](images/spa_pf.PNG)
+![tempspleinparan.png](images/tempspleinparan.png)
 
 Ce graphe montre l'évolution de la tendance et de la distribution de la part des femmes (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée la part des femmes (en %).
 
 - #### Evolution des salaires nets mensuels au cours du temps
 
-![spa_snm.PNG](images/spa_snm.PNG)
+![salaireparan.png](images/salaireparan.png)
 
 Ce graphe montre l'évolution de la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée les salaires nets mensuels (en euros).
 
+
 ### D. *Distribution des disciplines*
 
-![ddd.PNG](images/ddd.PNG)
+![pagedomaine.PNG](images/pagedomaine.PNG)
 
 - #### Paramètres
 
@@ -252,47 +253,47 @@ Ce graphe montre l'évolution de la tendance et de la distribution des salaires 
 
 Ce bloc permet de contrôler les différents graphes présents dans le bloc inférieur, en modifiant l'*année* avec un slider et en modifiant la *discipline* avec des radio buttons.
 
-- #### Evolution du taux d'insertion au cours du temps
+- #### Distribution des disciplines du taux d'insertion 
 
-![ddd_ti.PNG](images/ddd_ti.PNG)
+![tauxinsertdomaine.png](images/tauxinsertdomaine.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique du taux d'insertion (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'insertion (en %) de chaque diplôme. 
 
-- #### Evolution des statistiques des emplois au cours du temps 
+- #### Distribution des disciplines des statistiques d'emplois
 
-![ddd_se_1.PNG](images/ddd_se_1.PNG)
+![cadrescience.png](images/cadrescience.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois cadres (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois cadres (en %) de chaque diplôme.
 
-![ddd_se_2.PNG](images/ddd_se_2.PNG)
+![stabledomaine.png](images/stabledomaine.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois stables (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois stables (en %) de chaque diplôme.
 
-![ddd_se_3.PNG](images/ddd_se_3.PNG)
+![tempsplein_domaine.png](images/tempsplein_domaine.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée le taux d'emplois à temps plein (en %) de chaque diplôme.
 
-- #### Evolution de la part des femmes au cours du temps
+- #### Distribution des disciplines de la part des femmes
 
-![ddd_pf.PNG](images/ddd_pf.PNG)
+![femmesscience.png](images/femmesscience.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique de la part des femmes (en %) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée la part des femmes (en %) de chaque diplôme.
 
-- #### Evolution des salaires nets mensuels au cours du temps
+- #### Distribution des disciplines des salaires nets mensuels
 
-![ddd_snm.PNG](images/ddd_snm.PNG)
+![salairesdomaine.png](images/salairesdomaine.png)
 
 Le violin plot montre une représentation abstraite de la distribution empirique des salaires nets mensuels (en euros) de chaque diplôme au cours des années et en fonction de la discipline choisie.
 L'abscisse représente les types de diplôme et l'ordonnée les salaires nets mensuels (en euros) de chaque diplôme.
 
 ### E. *Statistiques par département*
 
-![spd.PNG](images/spd.PNG)
+![pagecarte.PNG](images/pagecarte.PNG)
 
 Seuls les jeux de données *[Insertion professionnelle des diplômé.e.s de Licence professionnelle en universités et établissements assimilés](https://www.data.gouv.fr/fr/datasets/insertion-professionnelle-des-diplome-e-s-de-licence-professionnelle-en-universites-et-etablissements-assimiles/#_)* et *[Insertion professionnelle des diplômés de Master en universités et établissements assimilés](https://www.data.gouv.fr/fr/datasets/insertion-professionnelle-des-diplomes-de-master-en-universites-et-etablissements-assimil-0/#_)* sont utilisés sur cette page.
 
@@ -304,7 +305,7 @@ La partie gauche de la page présente les paramètres permettant d'intéragir av
 
 - #### Partie principale
 
-![spd_1.PNG](images/spd_1.PNG)
+![cartetauxdinsert.png](images/cartetauxdinsert.png)
 
 La partie droite de la page affiche une carte des départements de la France métropolitaine. On peut intéragir avec cette dernière grâce aux paramètres, situé à gauche de la carte. Ils permettent de choisir une discipline, un diplôme et une statistique afin d'afficher sur la carte le nom de chaque département avec les valeurs de la statistique choisie en fonction de la discipline et du diplôme choisis. Cela permet d'avoir plus d'informations sur un département spécifique grâce à une représentation géolocalisée des statistiques. De plus, cela permet de comparer un département, une région ou une académie par rapport à d'autres.
 Pour pouvoir représenter les statistiques de chaque département sur la carte, nous avons décidé de prendre la médiane des données de chaque département étant donné que la taille des données est conséquente. Nous avons choisi la médiane, plutôt que la moyenne, car celle-ci est plus représentative.
