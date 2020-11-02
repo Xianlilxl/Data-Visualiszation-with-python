@@ -669,23 +669,23 @@ Dans cette partie, nous illustrons la distribution des statistiques critiques de
 
 Les taux d’insertion, d’emplois stables et d’emplois à temps plein de tout type de diplôme présentent une homogénéité dans tous les départements, et cela ne  varient pas en fonction des disciplines. 
 
-![femmescarte.png](images/femmescarte.png)
-La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt que les départements, sauf en « Science humaines et sociales ».
+![femmecarte.png](images/femmecarte.png)
 
-![femmesdomaine2.png](images/femmesdomaine2.png)
-La part des femmes parmi les diplômés de licence professionnelle du sud et de l’est de la France s’élève à 90%. 
+La différence des distributions de la part des femmes réside principalement dans les disciplines plutôt que les départements, sauf en « Science humaines et sociales ». La part des femmes parmi les diplômés de licence professionnelle du sud et de l’est de la France s’élève à 90%. 
 
-![cadrecarte.png](images/cadrecarte.png)
+| Licence professionnelle | Master |
+| :----------: | :-----------:  |
+| ![cartelpcadre.PNG](images/cartelpcadre.PNG) | ![cartemastercadre.PNG](images/cartemastercadre.PNG) |
+
 Concernant les taux d’emplois cadres des diplômés de licence professionnelle, ils présentent également une homogénéité dans tous les départements, et ne varient pas en fonction des disciplines. Contrairement aux diplômés de master dont les taux d’emplois cadres sont élevés surtout autour de l’Île-de-France et au sud de la France toutes disciplines confondues. 
 
-![salairecarte.png](images/salairecarte.png)
+![salairescarte.png](images/salairescarte.png)
 En analysant les salaires nets mensuels des diplômés de licence professionnelle, on constate une croissance dans les départements autour de l’Île-de-France dans toutes les disciplines. Quant aux diplômés de master, les salaires nets mensuels sont en général plus élevés comparés aux licences professionnelles. 
-<br>
+
 
 - #### Bilan
 
-A partir de toutes ces observations, on conclut que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, de plus on constate une croissance évidente de ces statistiques critiques dans les départements autour de  l’Île-de-France, au sud et à l’est de la France.
-
+A partir de toutes ces observations, on conclut que les diplômés en master toutes disciplines confondues ont plus de chance d’avoir un emploi CDI à temps plein et d’être cadre avec un meilleur salaire, de plus on constate une croissance évidente de ces statistiques critiques dans les départements autour de l’Île-de-France, au sud et à l’est de la France.
 
 ## 3. Conclusion 
 Pour conclure, on peut dire qu’il est plus intéressant d’avoir un master en « Science, technologie et santé » et en « Droit économie et gestion » autour de l’Ile-de-France, au sud et à l’est de la France pour avoir plus facilement un emploi stable à temps plein. 
