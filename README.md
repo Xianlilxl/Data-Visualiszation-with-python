@@ -226,13 +226,13 @@ Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emp
 
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emplois stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'emplois stables (en %).
 
-![femmesparan.PNG](images/femmesparan.PNG)
+![tempspleinparan.PNG](images/tempspleinparan.PNG)
 
 Ce graphe montre l'évolution de la tendance et de la distribution du taux d'emplois à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée le taux d'emplois à temps plein (en %).
 
 - #### Evolution de la part des femmes au cours du temps
 
-![tempspleinparan.png](images/tempspleinparan.png)
+![femmesparan.png](images/femmesparan.png)
 
 Ce graphe montre l'évolution de la tendance et de la distribution de la part des femmes (en %) de chaque diplôme au cours des années en fonction de la discipline choisie. L'abscisse représente les années et l'ordonnée la part des femmes (en %).
 
