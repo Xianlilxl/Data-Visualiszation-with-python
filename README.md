@@ -635,7 +635,7 @@ Lorsque l’on observe le graphe, on a l’impression que les médianes du taux 
 
 | Science, technologie et santé | Droit économie et gestion | Sciences humains et sociales |
 | :----------: | :-----------:  | :-----------: |
-| ![cadrescience.PNG](images/cadrescience.PNG) | ![cadredroit.PNG](images/cadredroit.PNG) | ![cadrehumains.PNG](images/cadrehumains.PNG) |
+| ![cadrescience.png](images/cadrescience.png) | ![cadredroit.png](images/cadredroit.png) | ![cadrehumains.png](images/cadrehumains.png) |
 
 La différence entre les diplômes réside principalement sur le taux d’emplois cadres. Lorsque l’on observe les graphes, on remarque que les diplômés en master ont plus de chance d’être recrutés en tant que cadre dans une entreprise, devant les diplômés de licence professionnelle et de DUT. Au niveau des disciplines, chaque année, plus de 50% des diplômés en master « Science, technologie et santé », « Droit économie et gestion » et « Sciences humains et sociales » sont recrutés en tant que cadre, contre moins de 20% des diplômés de licence professionnelle et de DUT. Les diplômés en « Lettres, langues, arts » ont moins de chances de devenir cadre dans une entreprise, contre environ 40% des diplômés de master. Cependant, malgré une médiane élevée pour les diplômés de master, la distribution du taux d'emplois cadres au cours des années reste très dispersée. 
 
