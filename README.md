@@ -576,13 +576,14 @@ Celui-ci est composé de **11873 observations** et de **32 variables**.
 ## 2. Analyse  
 ### A. Distribution des échantillons 
 
+![echantillons.PNG](images/echantillons.PNG)
+
 Dans un premier temps, pour représenter la structure de nos jeux de données, nous avons affiché sur la partie supérieure de la page un histogramme du nombre d'échantillons de chaque diplôme. Au cours des années, la proportion de ces jeux de données ne varient pas énormément, le jeu de données sur les masters est le plus conséquent par rapport à ceux sur les licences professionnelles et les diplômes universitaires de technologie (DUT).
 <br>
 
-Le diagramme à bandes montre les pourcentages de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit. La proportion de ces derniers reste également stable au cours du temps. La discipline « Science, technologie et santé » représente toujours la majorité des échantillons dans les trois jeux de données. Les disciplines « Droit économie et gestion » et « Sciences humaines et sociales » sont en deuxième et troisième position. La discipline « Lettres, langues, arts » est la plus minoritaire pour tout type de diplôme.
+Le diagramme de camembert montre les pourcentages de chaque discipline, dans chaque diplôme, en fonction de l'année que l'on choisit. La proportion de ces derniers reste également stable au cours du temps. La discipline « Science, technologie et santé » représente toujours la majorité des échantillons dans les trois jeux de données. Les disciplines « Droit économie et gestion » et « Sciences humaines et sociales » sont en deuxième et troisième position. La discipline « Lettres, langues, arts » est la plus minoritaire pour tout type de diplôme.
 <br>
 
-La carte des départements de la France métropolitaine dans la partie inférieure de la page montre les pourcentages d'échantillons de l’année, de la discipline et du diplôme choisis avec le nom de chaque département. Le jeu de données sur les DUT n’ayant pas de données géographiques, nous présentons uniquement la cartographie des données de licences professionnelles et de masters. Comme vu avec le diagramme à bandes, la proportion des différentes disciplines ne se varient pas au cours des années. Pourtant, dans beaucoup de départements, les diplômés de licence professionnelle en « Science, technologie et santé » prennent plus de 50% des échantillons, tout comme ceux de master qui sont légèrement plus nombreux en « Droit économie et gestion ». Au contraire, les diplômés en « Lettres, langues, arts » reste minoritaires pour tout type de diplôme et ne prennent pas plus que 10% dans tous les départements.
 
 
 
@@ -591,19 +592,22 @@ La carte des départements de la France métropolitaine dans la partie inférieu
 Dans cette partie, nous présentons les évolutions des statistiques critiques de chaque diplôme au cours des années (2010 à 2016) en prenant en compte les médianes, ainsi que les distributions de ces dernières. 
 <br>
 
+![tauxdinsertparan.PNG](images/tauxdinsertparan.PNG)
 Les taux d’insertion de toutes les disciplines et de tous les diplômes varient légèrement au cours des années, généralement le taux d’insertion des licences professionnelles est légèrement supérieur à celui des masters et des DUT, qui se trouve en dernière position.
 <br>
 
+![cadrestablesparan.PNG](images/cadrestablesparan.PNG)
 L'évolution de la tendance et de la distribution du taux d'emplois cadres de chaque diplôme reste stable au cours des années. En général, les diplômés en master ont plus de chance d’être recruté en tant que cadre que ceux de DUT et de licence professionnelle.
 <br>
 
 Ici, un emploi stable signifie à durée indéterminée. La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
-La variation des tendances des diplômes master et licence professionnelle n’est pas énorme au cours du temps, contrairement à celle des DUT qui varie beaucoup. 
 <br>
 
+![femmesparan.PNG](images/femmesparan.PNG)
 En général, la part des femmes dans les établissements d’IUT varie énormément et diminue au cours du temps contrairement à celle dans les autres établissements, qui est plus stable.
 <br>
 
+![salairesparan.PNG](images/salairesparan.PNG)
  la tendance et de la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie ne varient pas énormément.
  <br>
 
