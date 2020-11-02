@@ -150,14 +150,12 @@ def build_tab_1():
                                 html.Div([
                                     # Le graphe des nombres d'échantillons de chaque diplôme(DUT, Licence professionnel et Master)
                                     html.Div([
-                                        #html.H3("Nombre d'échantillons de chaque diplôme en fonction de l'année" ),
                                         dcc.Graph(id = "histo_diplome")
-                                    ], style={'display': 'inline-block'}),
+                                    ], style={'width': '50%','display': 'inline-block'}),
                                     # Le graphe des pourcentages d'échantillons de chaque discipline dans chaque diplôme(DUT, Licence professionnelle et Master)
                                     html.Div([
-                                        #html.H3("Pourcentage des disciplines dans chaque diplôme en fonction de l'année"),
                                         dcc.Graph(id = "diplome")
-                                    ], style={'display': 'inline-block'})
+                                    ], style={'width': '45%','display': 'inline-block'})
                                 ], style={'width': '100%', 'display': 'inline-block'})
                             ],
                         ),
@@ -179,7 +177,7 @@ def get_histo_par_diplome(annee_value):
     nbr_echantillons = pd.DataFrame({"Diplome" : ["DUT", "LP", "Master"], 
                                      "Nombre" : [dut["Nombre de réponses"].sum(), lp["Nombre de réponses"].sum(), master["nombre_de_reponses"].sum()]})
 
-    return px.histogram(nbr_echantillons, x="Diplome", y="Nombre", title="Nombre d'échantillons de chaque diplôme en fonction de l'année", labels={'x':'Diplômes', 'y':"Nombre d'échantillons de chaque diplôme"})
+    return px.histogram(nbr_echantillons, x="Diplome", y="Nombre", title="Nombre d'échantillons de chaque diplôme de l'année choisie", labels={'Diplome':'Diplômes', 'Nombre':"Nombre d'échantillons de chaque diplôme"})
 
 # Le graphe en camembert représente les pourcentages de chaque discipline dans chaque diplôme 
 @app.callback(
@@ -197,7 +195,7 @@ def get_diplome(annee_value):
                         axis = 0)
     diplome = diplome.groupby(by = ["Diplome", "Domaine"], as_index = False)["Nombre de réponses"].sum()
     fig = px.sunburst(diplome, path=["Diplome", "Domaine"], values="Nombre de réponses",color_continuous_scale='RdBu',
-                    color='Nombre de réponses', title="Pourcentage des disciplines dans chaque diplôme en fonction de l'année")
+                    color='Nombre de réponses', title="Pourcentage des disciplines de chaque diplôme de l'année choisie")
     return fig
 
 # Deuxième tabItems "Distribution des échantillons"
@@ -249,6 +247,7 @@ def build_tab_2():
                                         ],
                                                 value="Sciences, technologies et santé",
                                             ),
+                                            html.Br()
                                         ],
                                 )
                             ],
@@ -270,7 +269,6 @@ def build_tab_2():
                                                 html.Div(
                                                     id="Femme-an-container",
                                                     children=[
-                                                        html.H3("Part des femmes (en %)"),
                                                         dcc.Graph(id = "part_femmes_par_an")
                                                         ]
                                                     )
@@ -287,7 +285,6 @@ def build_tab_2():
                                                 html.Div(
                                                     id="Insertion-an-container",
                                                     children=[
-                                                        html.H3("Taux d'insertion (en %)"), 
                                                         dcc.Graph(id = "taux_dinsertion_par_an")]
                                                     )
                                             ],
@@ -304,11 +301,8 @@ def build_tab_2():
                                                 html.Div(
                                                     id="Emploi-an-container",
                                                     children=[
-                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_cadre_par_an"),
-                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_stables_par_an"),
-                                                        #html.H3("Statistiques des emplois (en %)"),
                                                         dcc.Graph(id = "taux_emplois_temps_plein_par_an")
                                                         ]
                                                     )
@@ -325,7 +319,6 @@ def build_tab_2():
                                                 html.Div(
                                                     id="Salaires-an-container",
                                                     children=[
-                                                        html.H3("Salaires nets mensuels (en euros)"),
                                                         dcc.Graph(id = "salaire_par_an")]
                                                     )
                                             ],
@@ -358,7 +351,10 @@ def get_part_femmes_par_an(discipline_value):
                                        axis = 0)
     part_femmes_par_an = part_femmes_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(part_femmes_par_an, x="Annee", y="Part des femmes", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(part_femmes_par_an, x="Annee", y="Part des femmes", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Part des femmes (en %) en " + discipline_value,
+                     labels = {'Annee' : "Années", "Part des femmes" : "Part des femmes (en %)"})
 
 # La tendance et la distribution du taux d'insertion (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
@@ -375,7 +371,10 @@ def get_taux_dinsertion_par_an(discipline_value):
                                        axis = 0)
     taux_dinsertion_par_an = taux_dinsertion_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(taux_dinsertion_par_an, x="Annee", y="Taux d’insertion", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(taux_dinsertion_par_an, x="Annee", y="Taux d’insertion", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Taux d’insertion (en %) en " + discipline_value,  
+                     labels = {'Annee' : "Années", "Taux d’insertion" : "Taux d’insertion (en %)"})
 
 # La tendance et la distribution des Statistiques des emplois (en %) cadres de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
@@ -392,7 +391,10 @@ def get_taux_emplois_cadre_par_an(discipline_value):
                                        axis = 0)
     taux_emplois_cadre_par_an = taux_emplois_cadre_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(taux_emplois_cadre_par_an, x="Annee", y="Emplois cadre", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(taux_emplois_cadre_par_an, x="Annee", y="Emplois cadre", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Taux d’emplois cadre (en %) en " + discipline_value,
+                     labels = {'Annee' : "Années", "Emplois cadre" : "Taux d’emplois cadre (en %)"})
 
 # La tendance et la distribution des Statistiques des emplois (en %) stables (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
@@ -409,7 +411,10 @@ def get_taux_emplois_stables_par_an(discipline_value):
                                        axis = 0)
     taux_emplois_stables_par_an = taux_emplois_stables_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(taux_emplois_stables_par_an, x="Annee", y="Emplois stables", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(taux_emplois_stables_par_an, x="Annee", y="Emplois stables", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Taux d'emplois stables (en %) en " + discipline_value,
+                     labels = {'Annee' : "Années", "Emplois stables" : "Taux d'emplois stables (en %)"})
 
 # La tendance et la distribution des Statistiques des emplois (en %) à temps plein (en %) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
@@ -426,7 +431,10 @@ def get_taux_emplois_temps_plein_par_an(discipline_value):
                                        axis = 0)
     taux_emplois_temps_plein_par_an = taux_emplois_temps_plein_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(taux_emplois_temps_plein_par_an, x="Annee", y="Emplois à temps plein", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(taux_emplois_temps_plein_par_an, x="Annee", y="Emplois à temps plein", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Taux d'emplois à temps plein (en %) en " + discipline_value,
+                     labels = {'Annee' : "Années", "Emplois à temps plein" : "Taux d'emplois à temps plein (en %)"})
 
 # La tendance et la distribution des salaires nets mensuels (en euros) de chaque diplôme au cours des années en fonction de la discipline choisie 
 @app.callback(
@@ -443,7 +451,10 @@ def get_salaire_par_an(discipline_value):
                                        axis = 0)
     salaire_par_an = salaire_par_an.dropna(axis=0,how='all')
     
-    return px.scatter(salaire_par_an, x="Annee", y="Salaire", color = "Diplome",trendline="ols", marginal_y="box")
+    return px.scatter(salaire_par_an, x="Annee", y="Salaire", color = "Diplome",
+                     trendline="ols", marginal_y="box", 
+                     title = "Salaires nets mensuels à temps plein (en euros) en " + discipline_value,
+                     labels = {'Annee' : "Années", "Salaire" : "Salaires nets mensuels à temps plein (en euros)"})
 
 
 # Construction du troisième onglet "Distribution des disciplines"
@@ -513,6 +524,7 @@ def build_tab_3():
                                     ],
                                     value = "Sciences, technologies et santé",
                                 ),
+                                html.Br()
                             ],
                         )
                         
@@ -537,7 +549,6 @@ def build_tab_3():
                                             className="row",
                                             id="Femme-discipline-container",
                                             children=[
-                                                html.H3("Distribution des parts des femmes"),
                                                 dcc.Graph(id = "part_femmes_par_domaine")
                                                 ],
                                             ),
@@ -556,7 +567,6 @@ def build_tab_3():
                                             className="row",
                                             id="Insertion-discipline-container",
                                             children=[
-                                                html.H3("Distribution des Taux d'insertion (en %)"),
                                                 dcc.Graph(id = "taux_dinsertion_par_domaine"),
                                                 ],
                                             ),
@@ -575,11 +585,8 @@ def build_tab_3():
                                             className="row",
                                             id="Emploi-discipline-container",
                                             children=[
-                                                html.H3("Taux d'emplois cadres (en %)"),
                                                 dcc.Graph(id = "taux_emplois_cadre_par_domaine"), 
-                                                html.H3("Taux d'emplois stables (en %)"),
                                                 dcc.Graph(id = "taux_emplois_stables_par_domaine"),
-                                                html.H3("Taux d'emplois à temps plein (en %)"),
                                                 dcc.Graph(id = "taux_emplois_temps_plein_par_domaine")
                                                 ],
                                             ),
@@ -598,7 +605,6 @@ def build_tab_3():
                                             className="row",
                                             id="Salaires-discipline-container",
                                             children=[
-                                                html.H3("Salaires nets mensuels (en euros)"),
                                                 dcc.Graph(id = "salaire_par_domaine")
                                                 ],
                                             ),
@@ -630,7 +636,10 @@ def get_taux_dinsertion_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'taux_dinsertion']].rename(columns={"diplome": "Diplome", "taux_dinsertion" : "Taux d’insertion"})], 
                                        axis = 0)
     taux_insertion_par_domaine = taux_insertion_par_domaine.dropna(axis=0,how='all')
-    return px.violin(taux_insertion_par_domaine, x="Diplome", y="Taux d’insertion", points="all", box = True, color = "Diplome")
+    return px.violin(taux_insertion_par_domaine, x="Diplome", y="Taux d’insertion", 
+                     points="all", box = True, color = "Diplome", 
+                     title = "Taux d’insertion (en %) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Taux d’insertion" : "Taux d’insertion (en %)"})
 
 # Le violinPlot des parts des femmes de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
@@ -647,7 +656,10 @@ def get_part_femmes_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'femmes']].rename(columns={"diplome": "Diplome", "femmes" : "Part des femmes"})], 
                                        axis = 0)
     part_femmes_par_domaine = part_femmes_par_domaine.dropna(axis=0,how='all')
-    return px.violin(part_femmes_par_domaine, x="Diplome", y="Part des femmes", points="all", box = True, color = "Diplome")
+    return px.violin(part_femmes_par_domaine, x="Diplome", y="Part des femmes", 
+    points="all", box = True, color = "Diplome", 
+                     title = "Part des femmes (en %) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Part des femmes" : "Part des femmes (en %)"})
 
 
 # Le violinPlot du taux d'emplois cadres (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
@@ -665,7 +677,10 @@ def get_taux_emplois_cadre_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'emplois_cadre']].rename(columns={"diplome": "Diplome", "emplois_cadre" : "Emplois cadre"})], 
                                        axis = 0)
     emplois_cadre_par_domaine = emplois_cadre_par_domaine.dropna(axis=0,how='all')
-    return px.violin(emplois_cadre_par_domaine, x="Diplome", y="Emplois cadre", points="all", box = True, color = "Diplome")
+    return px.violin(emplois_cadre_par_domaine, x="Diplome", y="Emplois cadre", 
+                     points="all", box = True, color = "Diplome", 
+                     title = "Taux d'emplois cadre (en %) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Emplois cadre" : "Taux d'emplois cadre (en %)"})
 
 # Le violinPlot du taux d'emplois stables (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
@@ -682,7 +697,10 @@ def get_taux_emplois_stables_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'emplois_stables']].rename(columns={"diplome": "Diplome", "emplois_stables" : "Emplois stables"})], 
                                        axis = 0)
     taux_emplois_stables_par_domaine = taux_emplois_stables_par_domaine.dropna(axis=0,how='all')
-    return px.violin(taux_emplois_stables_par_domaine, x="Diplome", y="Emplois stables", points="all", box = True, color = "Diplome")
+    return px.violin(taux_emplois_stables_par_domaine, x="Diplome", y="Emplois stables", 
+                     points="all", box = True, color = "Diplome", 
+                     title = "Taux d'emplois stables (en %) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Emplois stables" : "Taux d'emplois stables (en %)"})
 
 # Le violinPlot du taux d'emplois à temps plein (en %) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
@@ -699,7 +717,10 @@ def get_taux_emplois_temps_plein_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'emplois_a_temps_plein']].rename(columns={"diplome": "Diplome", "emplois_a_temps_plein" : "Emplois à temps plein"})], 
                                        axis = 0)
     taux_emplois_temps_plein_par_domaine = taux_emplois_temps_plein_par_domaine.dropna(axis=0,how='all')
-    return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Emplois à temps plein", points="all", box = True, color = "Diplome")
+    return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Emplois à temps plein", 
+                     points="all", box = True, color = "Diplome", 
+                     title = "Taux d'emplois à temps plein (en %) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Emplois à temps plein" : "Taux d'emplois à temps plein (en %)"})
 
 # Le violinPlot des salaires nets mensuels (en euros) de chaque diplôme en fonction de l'année et de la discipline choisies
 @app.callback(
@@ -716,7 +737,10 @@ def get_salaire_par_domaine(annee_value, discipline_value):
                                         master[['diplome', 'salaire_net_median_des_emplois_a_temps_plein']].rename(columns={"diplome": "Diplome", "salaire_net_median_des_emplois_a_temps_plein" : "Salaire"})], 
                                        axis = 0)
     taux_emplois_temps_plein_par_domaine = taux_emplois_temps_plein_par_domaine.dropna(axis=0,how='all')
-    return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Salaire", points="all", box = True, color = "Diplome")
+    return px.violin(taux_emplois_temps_plein_par_domaine, x="Diplome", y="Salaire", 
+                     points="all", box = True, color = "Diplome", 
+                     title = "Salaires nets mensuels (en euros) en " + discipline_value + " en " + str(annee_value),
+                     labels = {'Diplome' : "Diplômes", "Salaire" : "Salaires nets mensuels (en euros)"})
 
 # Construction du quatrième onglet "Statistiques par département"
 # Dans cette partie, nous illustrons la distribution des statistiques critiques de chaque département sous forme d'une cartographie 
@@ -822,6 +846,7 @@ def build_tab_4():
                             ],
                             value="Taux d'insertion",
                         ),
+                        html.Br(),
                         dcc.Graph(id = "carte")
                     ],
                 ),
@@ -888,8 +913,12 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
     
     if statistique_value == "Salaire net mensuel médian des emplois à temps plein":
         etiquette = '<b>Département</b>: <b>%{hovertext}</b>'+ '<br><b>'+ statistique_value +'</b>: %{z} €<br><extra></extra>'
+        colorbar_label = 'Salaire net mensuel médian <br>des emplois à temps plein (en euros)'
+        titre_carte = 'Salaire net mensuel médian des emplois à temps plein (en euros) par département en ' + discipline_value +" en " +str(annee_value)
     else : 
         etiquette = '<b>Département</b>: <b>%{hovertext}</b>'+ '<br><b>'+ statistique_value +'</b>: %{z} %<br><extra></extra>'
+        colorbar_label = statistique_value + " (en %)"
+        titre_carte = statistique_value + ' (en %) par département en ' + discipline_value +" en " +str(annee_value)
 
     fig = go.Figure(go.Choroplethmapbox(geojson=departement, 
                                             featureidkey="properties.nom",
@@ -898,12 +927,13 @@ def get_carte(annee_value,diplome_value, discipline_value, statistique_value):
                                             text = Academie["Departement"], 
                                             hovertext = Academie["Departement"], 
                                             hovertemplate = etiquette,
+                                            colorbar_title = colorbar_label,
                                             zauto=True,
                                             colorscale='viridis',
                                             marker_opacity=0.8,
                                             marker_line_width=0.8,
                                             showscale=True))
-    fig.update_layout(title={'text':'Statistique par département','xref':'paper','x':0.5},
+    fig.update_layout(title={'text':titre_carte,'xref':'paper','x':0.5},
                         margin={'l':10,'r':0,'t':50,'b':10},
                         mapbox_style="carto-darkmatter",
                         mapbox_zoom=4, 
